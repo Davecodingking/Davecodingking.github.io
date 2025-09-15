@@ -1,0 +1,266 @@
+:root {
+    /* =========================
+   1. First Version Shadows (Dark)
+   =========================
+    --color-bg-dark: #1b1f17;
+    --color-bg-card: #3c3d37;
+    --color-bg-light: #697565;
+    --color-text-primary: #ecdfcc;
+    --color-text-secondary: #d4c9b8; */
+    /* =========================
+   2. Second Version Shadows (Dark)
+   ========================= */
+    --color-bg-dark: #1a1613;
+    --color-bg-card: #2c241f;
+    --color-bg-light: #5c4d43;
+    --color-text-primary: #e4d8c6;
+    --color-text-secondary: #d6bfa3;
+    --color-white: #ffffff;
+    --color-bg-base: var(--color-bg-dark);
+    /* Navigation Button Backgrounds (derived from --color-bg-card with opacity) */
+    --color-btn-nav-bg-opacity-low: rgba(60, 61, 55, 0.5);
+    /* Semi-transparent dark green-gray */
+    --color-btn-nav-bg-opacity-high: rgba(60, 61, 55, 0.8);
+    /* Less transparent dark green-gray on hover */
+    /* Font Family */
+    --font-family-main: 'Inter', sans-serif;
+    /* Primary font for the entire site */
+
+    --width-max-content: 1280px;
+    /* Maximum width for main content */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-main);
+    background: var(--color-bg-base);
+    color: var(--color-text-primary);
+    transition: padding-top 0.3s ease-in-out;
+}
+
+p {
+    text-align: justify;
+}
+
+footer p {
+    text-align: center;
+}
+
+.content-wrapper {
+    max-width: var(--width-max-content);
+    margin: 0 auto;
+    background-color: var(--color-bg-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.section-subsubtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.card {
+    background-color: var(--color-bg-card);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid var(--color-bg-light);
+    border-radius: 0.8rem;
+    padding: 0;
+    transition: 0.1s ease-in-out, border 0.3s ease;
+}
+
+    .project-card-content:hover {
+        box-shadow: 0 0 20px var(--color-text-primary);
+    }
+
+.project-description {
+    text-align: justify;
+}
+
+#projects .card video {
+    filter: grayscale(25%);
+    transition: filter 0.3s ease;
+}
+
+#projects .card:hover video {
+    filter: grayscale(0%);
+}
+
+.btn-primary {
+    background-color: var(--color-bg-light);
+    color: var(--color-bg-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+}
+
+    .btn-primary:hover {
+        /* background-color: var(--color-text-primary);
+    color: var(--color-bg-dark); */
+        box-shadow: 0 0 10px var(--color-text-primary);
+    }
+
+/* Header specific styles for dynamic resizing */
+.main-header {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+    .main-header .nav-title-group .name {
+        font-size: 3rem;
+    }
+
+    .main-header .nav-title-group .title {
+        font-size: 1.5rem;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .social-nav-link {
+        margin: 0.25rem;
+    }
+
+    .main-header .nav-title-group .name {
+        font-size: 2.5rem;
+    }
+
+    .main-header .nav-title-group .title {
+        font-size: 1.25rem;
+    }
+}
+
+/* Back to top button styles */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 50;
+    padding: 0.75rem;
+    border-radius: 9999px;
+    opacity: 0;
+    visibility: hidden;
+    line-height: 0;
+    background: var(--color-bg-light);
+    color: var(--color-white);
+    transition: all 300ms;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+    .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background-color: var(--color-text-primary);
+        color: var(--color-bg-dark);
+    }
+
+/* NEW: Responsive Navigation Logic */
+#mainHeader.fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: var(--width-max-content);
+    /* This matches .content-wrapper */
+    z-index: 50;
+}
+
+/* Portrait Mode: Navigation is static */
+@media (orientation: portrait) {
+    #mainHeader {
+        position: static !important;
+        /* Ensure it's not fixed in portrait */
+        transform: none !important;
+        max-width: none !important;
+    }
+
+    body {
+        padding-top: 0 !important;
+        /* No padding needed when header is static */
+    }
+}
+
+/* --- Swiper Slider Styles --- */
+
+/* Swiper Pagination Custom Styles */
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px !important;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.swiper-pagination-bullet {
+    background: var(--color-bg-light) !important;
+    opacity: 0.5 !important;
+    border: none !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0 4px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--color-text-primary) !important;
+    opacity: 1 !important;
+}

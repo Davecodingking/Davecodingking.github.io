@@ -1,0 +1,44 @@
+<!-- main-header.html -->
+<header id="mainHeader"
+        class="main-header bg-[var(--color-bg-dark)]/80 backdrop-blur-sm transition-all duration-300 ease-in-out">
+    <div class="container flex items-center justify-between mx-auto">
+        <!-- Name and Title -->
+        <div class="nav-title-group py-2">
+            <a href="#top" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <h1 class="name text-5xl font-bold text-[var(--color-text-primary)]" data-lang-key="name">David He</h1>
+            </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="flex items-center space-x-4">
+             <!-- Desktop Links -->
+            <ul class="hidden lg:flex items-center space-x-6 text-lg">
+                <li><a href="#projects" class="scrollto text-[var(--color-text-secondary)] hover:text-white" data-lang-key="navProjects">Projects</a></li>
+                <li><a href="#education" class="scrollto text-[var(--color-text-secondary)] hover:text-white" data-lang-key="navEducation">Education</a></li>
+                <li><a href="#experience" class="scrollto text-[var(--color-text-secondary)] hover:text-white" data-lang-key="navExperience">Experience</a></li>
+                <li><a href="#contact" class="scrollto text-[var(--color-text-secondary)] hover:text-white" data-lang-key="navContact">Contact</a></li>
+            </ul>
+             <!-- Social and Action Links -->
+            <div class="flex items-center space-x-4">
+                <a id="resume-link" href="./Resume_David_HE.pdf" target="_blank"
+                   class="flex items-center text-[var(--color-text-secondary)] hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-file-lines text-xl"></i>
+                    <span class="hidden lg:inline ml-2" data-lang-key="navResume">Resume</span>
+                </a>
+                <a href="https://github.com/Davecodingking" target="_blank" rel="noopener noreferrer"
+                   class="text-[var(--color-text-secondary)] hover:text-white transition-colors duration-300">
+                    <i class="fa-brands fa-github text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jincheng-he-751474332/" target="_blank" rel="noopener noreferrer"
+                   class="text-[var(--color-text-secondary)] hover:text-white transition-colors duration-300">
+                    <i class="fa-brands fa-linkedin text-2xl"></i>
+                </a>
+                 <!-- Language Switcher -->
+                <button id="lang-switcher" type="button" class="text-[var(--color-text-secondary)] hover:text-white font-semibold text-lg px-2">
+                    ENG
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
