@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const translations = {
         en: {
-            // ... (existing translations)
             pageTitle: "David He | Portfolio",
             name: "David He",
+            // 【新增】：英文版介绍标题
+            heroTitle: "Researcher, Game Developer, Game Artist in my mind.",
             heroDescription: "I enjoy learning various technologies and developing games. I'm always enthusiastic on learning, building new skills, and bringing ideas to life.",
             myWork: "My Work",
             proj1Title: "Extreme Sports Game (2025)",
@@ -100,9 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
             mechaMap: "The game supports loading level data from external JSON/XML files. This data-driven approach allows for rapid iteration of level design (Tilemaps, Enemy Spawns, Collision Layers) without recompiling the C++ code. The map rendering uses a Tilemap system optimized for batch rendering.",
         },
         zh: {
-            // ... (existing translations)
             pageTitle: "何锦程 | 个人作品集",
             name: "何锦程",
+            // 【新增】：中文版介绍标题
+            heroTitle: "我是一个 Researcher，Game Developer，Game Artist in my mind.",
             heroDescription: "我热衷于学习各类技术与开发游戏。对于学习新知识、构筑新技能以及将想法勇于付诸实践，我总是充满热情对新鲜事物。认真负责，具备良好的沟通能力。",
             myWork: "我的作品",
             proj1Title: "极限运动游戏 (2025)",
@@ -170,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pcgFeat3: "UE5 内可视化参数面板",
             pcgFeat4: "支持外部资产导入",
 
-             // --- RAY TRACER DETAIL PAGE (UPDATED) ---
+             // --- RAY TRACER DETAIL PAGE ---
             rtPageTitle: "光线追踪渲染器 | 何锦程",
             misComparisonTitle: "多重重要性采样 (MIS) 对比",
             misDesc: "多重重要性采样 (MIS) 是一种用于改善蒙特卡洛积分收敛性的技术，通过结合不同的采样策略来实现。在我的光线追踪器中，我实现了 MIS 以有效采样光源和 BSDF 的贡献。",
