@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="mechaPageTitle">2D Mecha Shooter | David He</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+</head>
+<body class="antialiased leading-normal">
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-wrapper">
+        <div class="container py-20 md:py-24">
+            
+            <div class="mb-8 flex justify-between items-center">
+                <a href="../index.html#projects" class="text-[var(--color-text-secondary)] hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> <span data-lang-key="backToProjects">Back to Projects</span>
+                </a>
+                <a href="https://github.com/Davecodingking/2D_Game_Engine" target="_blank" class="btn-primary text-sm">
+                    <i class="fa-brands fa-github mr-2"></i> Source Code
+                </a>
+            </div>
+
+            <h1 class="text-4xl font-bold text-[var(--color-text-primary)] mb-6" data-lang-key="proj2Title">2D Pixel Mecha Shooter</h1>
+            
+            <!-- 
+                【更新】填入真实的视频 ID
+            -->
+            <div class="card mb-8 p-2">
+                <div class="video-responsive-wrapper"
+                     data-youtube-id="UCpRQbqjhwE"
+                     data-bilibili-id="BV1Mu4wzuEmP">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <!-- 左侧：深度技术报告 -->
+                <div class="md:col-span-3 space-y-12">
+                    
+                    <!-- 1. Introduction -->
+                    <section>
+                        <h2 class="section-subtitle mb-4">Introduction</h2>
+                        <div class="card">
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="mechaIntro">
+                                This project is a 2D top-down shooter game engine built from scratch using C++. The goal was to understand the low-level architecture of game engines, avoiding the use of pre-made engines like Unity or Unreal. It features a custom ECS-like component system, a finite state machine for AI, and a grid-based physics system.
+                            </p>
+                            <div class="my-4 border border-[var(--color-bg-light)] rounded-lg overflow-hidden">
+                                <img src="../images/placeholder_gameplay.png" alt="Gameplay Screenshot" class="w-full h-auto object-cover">
+                                <p class="text-center text-sm text-[var(--color-text-secondary)] py-2">Figure 1: Final Gameplay Screenshot</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 2. Diverse Attack Modes (REPLACED Engine Architecture) -->
+                    <section>
+                        <h2 class="section-subtitle mb-4" data-lang-key="mechaAttackTitle">Diverse Attack Modes</h2>
+                        <div class="card">
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="mechaAttackDesc">
+                                To enhance gameplay variety, I implemented a flexible weapon system supporting multiple attack patterns. Each weapon type has unique properties affecting fire rate, damage, and projectile behavior.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <!-- Machine Gun -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden bg-white/5 p-2 text-center">
+                                    <div class="w-full aspect-square bg-black/50 mb-2 flex items-center justify-center">
+                                        <img src="../images/placeholder_machinegun.png" alt="Machine Gun" class="object-contain max-h-full">
+                                    </div>
+                                    <p class="text-sm font-semibold text-[var(--color-text-primary)]">Machine Gun</p>
+                                </div>
+                                <!-- Cannon -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden bg-white/5 p-2 text-center">
+                                    <div class="w-full aspect-square bg-black/50 mb-2 flex items-center justify-center">
+                                        <img src="../images/placeholder_cannon.png" alt="Cannon" class="object-contain max-h-full">
+                                    </div>
+                                    <p class="text-sm font-semibold text-[var(--color-text-primary)]">Cannon</p>
+                                </div>
+                                <!-- Laser -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden bg-white/5 p-2 text-center">
+                                    <div class="w-full aspect-square bg-black/50 mb-2 flex items-center justify-center">
+                                        <img src="../images/placeholder_laser.png" alt="Laser" class="object-contain max-h-full">
+                                    </div>
+                                    <p class="text-sm font-semibold text-[var(--color-text-primary)]">Laser</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 3. Hero Character & Animation (REPLACED AI) -->
+                    <section>
+                        <h2 class="section-subtitle mb-4" data-lang-key="mechaHeroTitle">Hero Character & Animation</h2>
+                        <div class="card">
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="mechaHeroDesc">
+                                The player character features a robust animation state machine. Animations are handled via a sprite sheet system that synchronizes with player input and movement states (Idle, Run, Shoot).
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- Character Design -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden bg-white/5 p-2">
+                                    <div class="w-full aspect-video bg-black/50 mb-2 flex items-center justify-center">
+                                        <img src="../images/placeholder_hero_design.png" alt="Hero Design" class="object-contain max-h-full">
+                                    </div>
+                                    <p class="text-center text-sm text-[var(--color-text-secondary)]">Character Design Sheet</p>
+                                </div>
+                                <!-- Animation State -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden bg-white/5 p-2">
+                                    <div class="w-full aspect-video bg-black/50 mb-2 flex items-center justify-center">
+                                        <img src="../images/placeholder_hero_anim.png" alt="Animation State Machine" class="object-contain max-h-full">
+                                    </div>
+                                    <p class="text-center text-sm text-[var(--color-text-secondary)]">Animation States</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                     <!-- 4. NPC Logic & Settings (REPLACED Physics) -->
+                     <section>
+                        <h2 class="section-subtitle mb-4" data-lang-key="mechaNPCTitle">NPC Logic & Settings</h2>
+                        <div class="card">
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="mechaNPCDesc">
+                                The game features distinct enemy types, each with unique behaviors driven by a Finite State Machine (FSM). The AI evaluates player distance and line-of-sight to transition between Idle, Chase, and Attack states.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <!-- NPC 1 -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden bg-white/5 p-2 text-center">
+                                    <div class="w-full aspect-square bg-black/50 mb-2 flex items-center justify-center">
+                                        <img src="../images/placeholder_npc1.png" alt="NPC Type A" class="object-contain max-h-full">
+                                    </div>
+                                    <p class="text-sm font-semibold text-[var(--color-text-primary)]">Melee Drone</p>
+                                </div>
+                                <!-- NPC 2 -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden bg-white/5 p-2 text-center">
+                                    <div class="w-full aspect-square bg-black/50 mb-2 flex items-center justify-center">
+                                        <img src="../images/placeholder_npc2.png" alt="NPC Type B" class="object-contain max-h-full">
+                                    </div>
+                                    <p class="text-sm font-semibold text-[var(--color-text-primary)]">Ranged Turret</p>
+                                </div>
+                                <!-- NPC 3 -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden bg-white/5 p-2 text-center">
+                                    <div class="w-full aspect-square bg-black/50 mb-2 flex items-center justify-center">
+                                        <img src="../images/placeholder_npc3.png" alt="NPC Type C" class="object-contain max-h-full">
+                                    </div>
+                                    <p class="text-sm font-semibold text-[var(--color-text-primary)]">Boss Unit</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 5. Map & Data System -->
+                    <section>
+                        <h2 class="section-subtitle mb-4">Data-Driven Map System</h2>
+                        <div class="card">
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="mechaMap">
+                                The game supports loading level data from external JSON/XML files. This data-driven approach allows for rapid iteration of level design (Tilemaps, Enemy Spawns, Collision Layers) without recompiling the C++ code. The map rendering uses a Tilemap system optimized for batch rendering.
+                            </p>
+                            <div class="my-4 border border-[var(--color-bg-light)] rounded-lg overflow-hidden">
+                                <img src="../images/placeholder_map.png" alt="Map Data Structure" class="w-full h-auto object-cover">
+                                <p class="text-center text-sm text-[var(--color-text-secondary)] py-2">Figure 5: Data-Driven Level Loading</p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- 右侧：侧边栏 -->
+                <div class="md:col-span-1">
+                    <div class="card sticky top-24">
+                        <h3 class="text-xl font-semibold mb-4 text-[var(--color-text-primary)]" data-lang-key="techTitle">Technologies</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">C++</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">SFML / SDL</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">Custom Physics</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">Aseprite</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold mb-4 text-[var(--color-text-primary)]">Project Info</h3>
+                        <div class="text-sm text-[var(--color-text-secondary)] space-y-2">
+                            <p><span class="text-[var(--color-text-primary)]">Role:</span> Solo Engine Programmer</p>
+                            <p><span class="text-[var(--color-text-primary)]">Duration:</span> 8 Weeks</p>
+                            <p><span class="text-[var(--color-text-primary)]">Type:</span> Academic Coursework</p>
+                        </div>
+
+                         <div class="mt-8">
+                            <a href="https://david-jc.itch.io/2d-spacemecha" target="_blank" class="btn-primary w-full text-center block mb-2">
+                                <i class="fa-brands fa-itch-io mr-2"></i> Play on Itch.io
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="pb-16">
+        <div class="container mx-auto text-center">
+            <p class="text-sm text-[var(--color-text-secondary)]" data-lang-key="footerText">
+                &copy; 2025 David He. Made using Tailwind CSS.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="rtPageTitle">Ray Tracer | David He</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+
+    <!-- Image Comparison Slider -->
+    <script src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
+</head>
+
+<body class="antialiased leading-normal">
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-wrapper">
+        <div class="container py-20 md:py-24">
+            
+            <!-- Back Button -->
+            <div class="mb-8 flex justify-between items-center">
+                <a href="../index.html#projects" class="text-[var(--color-text-secondary)] hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> <span data-lang-key="backToProjects">Back to Projects</span>
+                </a>
+                <a href="https://github.com/Davecodingking/RTBase" target="_blank" class="btn-primary text-sm">
+                    <i class="fa-brands fa-github mr-2"></i> View Project
+                </a>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6" data-lang-key="proj4Title">Basic Ray Tracing Renderer</h1>
+
+            <!-- Overview -->
+            <section class="mb-12">
+                <h2 class="section-subtitle mb-4" data-lang-key="overviewTitle">About</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed" data-lang-key="rtOverview">
+                        A CPU-based ray tracer developed from scratch using C++ and DirectX 11. This project explores advanced rendering concepts found in the PBRT book, implementing physically based materials and various global illumination algorithms.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Rendering Algorithms -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle text-2xl font-semibold text-[var(--color-text-primary)] mb-4" data-lang-key="rtAlgoTitle">Rendering Algorithms</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] mb-8" data-lang-key="rtAlgoDesc">
+                        Three algorithms are implemented in this ray-tracer: Monte Carlo Path Tracing, Light Tracing, and Instant Radiosity.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Path Tracing -->
+                        <div class="flex flex-col items-center">
+                            <h3 class="text-lg font-semibold text-[var(--color-text-secondary)] mb-2">Path Tracing</h3>
+                            <div class="w-full aspect-square bg-black/50 rounded overflow-hidden border border-[var(--color-bg-light)]">
+                                <img src="../images/placeholder_pathtracing.png" alt="Path Tracing" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- Light Tracing -->
+                        <div class="flex flex-col items-center">
+                            <h3 class="text-lg font-semibold text-[var(--color-text-secondary)] mb-2">Light Tracing</h3>
+                            <div class="w-full aspect-square bg-black/50 rounded overflow-hidden border border-[var(--color-bg-light)]">
+                                <img src="../images/placeholder_lighttracing.png" alt="Light Tracing" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- Instant Radiosity -->
+                        <div class="flex flex-col items-center">
+                            <h3 class="text-lg font-semibold text-[var(--color-text-secondary)] mb-2">Instant Radiosity</h3>
+                            <div class="w-full aspect-square bg-black/50 rounded overflow-hidden border border-[var(--color-bg-light)]">
+                                <img src="../images/placeholder_instantradiosity.png" alt="Instant Radiosity" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Materials -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle text-2xl font-semibold text-[var(--color-text-primary)] mb-4" data-lang-key="rtMatTitle">Materials</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] mb-8" data-lang-key="rtMatDesc">
+                        Multiple material brdf are implemented in this ray-tracer, including diffuse (OrenNayar), metal (Conductor), plastic (Phong), glass (Fresnel), specular (Mirror) etc.
+                    </p>
+                    <div class="w-full rounded-lg overflow-hidden border border-[var(--color-bg-light)]">
+                        <img src="../images/placeholder_materials.png" alt="Materials Showcase" class="w-full h-auto object-contain">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 
+                =======================================================
+                3. MIS Comparison Slider (修复版)
+                Removed fixed height, allowing images to define the size
+                ======================================================= 
+            -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle text-2xl font-semibold text-[var(--color-text-primary)] mb-4" data-lang-key="misComparisonTitle">Multiple Importance Sampling</h2>
+                <div class="card">
+                    <p class="text-[var(--color-text-secondary)] mb-6" data-lang-key="misDesc">
+                        Multiple Importance Sampling (MIS) is a technique used to improve the convergence of Monte Carlo integration by combining different sampling strategies.
+                    </p>
+                    
+                    <!-- 
+                        修改：移除 h-[400px]，让宽度自然撑开高度 
+                        确保两张图片的尺寸（分辨率）完全一致，否则会对不齐
+                    -->
+                    <div class="relative w-full max-w-[800px] mx-auto"> 
+                        <!-- Labels -->
+                        <span class="absolute top-4 left-4 px-3 py-1 text-xs font-bold rounded bg-black/70 text-white z-10 border border-white/20">
+                            Without MIS
+                        </span>
+                        <span class="absolute top-4 right-4 px-3 py-1 text-xs font-bold rounded bg-black/70 text-white z-10 border border-white/20">
+                            With MIS
+                        </span>
+
+                        <!-- The Slider Component -->
+                        <img-comparison-slider>
+                            <!-- 请确保这两张图片的分辨率完全一致 -->
+                            <img slot="first" src="../images/bathroom.png" class="w-full h-auto block" alt="Without MIS" />
+                            <img slot="second" src="../images/bathroom_denoised.png" class="w-full h-auto block" alt="With MIS" />
+                            <div slot="handle" class="custom-handle">
+                                <i class="fa-solid fa-arrows-left-right"></i>
+                            </div>
+                        </img-comparison-slider>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Performance Optimizations -->
+             <section class="mb-12">
+                <h2 class="section-subsubtitle text-2xl font-semibold text-[var(--color-text-primary)] mb-4" data-lang-key="rtPerfTitle">Performance Optimizations</h2>
+                <div class="card">
+                     <ul class="list-disc pl-5 text-[var(--color-text-secondary)] space-y-2">
+                        <li><b>Multithreading:</b> Utilizing multiple CPU cores to render tiles independently.</li>
+                        <li><b>Adaptive Sampling:</b> Focusing computational resources on areas with higher variance.</li>
+                        <li><b>BVH:</b> Bounding Volume Hierarchy to accelerate ray-object intersection.</li>
+                        <li><b>Intel OIDN:</b> AI-based denoising for high-quality results with fewer samples.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 
+                =======================================================
+                4. Future Work (新增)
+                ======================================================= 
+            -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle text-2xl font-semibold text-[var(--color-text-primary)] mb-4" data-lang-key="rtFutureTitle">Future Work</h2>
+                <div class="card">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-[var(--color-bg-light)] p-3 rounded-lg">
+                                <i class="fa-solid fa-wand-magic-sparkles text-2xl text-[#e4d8c6]"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">Photon Mapping Optimization</h3>
+                                <p class="text-[var(--color-text-secondary)]" data-lang-key="rtFuturePhoton">
+                                    Currently implementing and optimizing Photon Mapping to better handle caustics and difficult lighting scenarios (SDS paths).
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-[var(--color-bg-light)] p-3 rounded-lg">
+                                <i class="fa-solid fa-microchip text-2xl text-[#e4d8c6]"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">CPU to GPU Porting</h3>
+                                <p class="text-[var(--color-text-secondary)]" data-lang-key="rtFutureGPU">
+                                    Porting the core path tracing architecture from CPU to GPU (CUDA/OptiX) to leverage parallel computing power for real-time rendering performance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="pb-16">
+        <div class="container mx-auto text-center">
+            <p class="text-sm text-[var(--color-text-secondary)]" data-lang-key="footerText">
+                &copy; 2025 David He.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

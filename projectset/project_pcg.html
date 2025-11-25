@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="pcgPageTitle">PCG City Generator | David He</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <!-- 路径改为上一级 ../ -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+</head>
+<body class="antialiased leading-normal">
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-wrapper">
+        <div class="container py-20 md:py-24">
+            
+            <div class="mb-8">
+                <!-- 返回链接改为上一级 -->
+                <a href="../index.html#projects" class="text-[var(--color-text-secondary)] hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> <span data-lang-key="backToProjects">Back to Projects</span>
+                </a>
+            </div>
+
+            <h1 class="text-4xl font-bold text-[var(--color-text-primary)] mb-6" data-lang-key="proj3Title">PCG City Generator</h1>
+            
+            <div class="card mb-8 p-2">
+                <!-- 
+                   已填入提取的视频 ID
+                -->
+                <div class="video-responsive-wrapper"
+                     data-youtube-id="YjtZogq7inQ"
+                     data-bilibili-id="BV1WUU3BFESe">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <div class="card h-full">
+                        <h2 class="text-2xl font-semibold mb-4 text-[var(--color-text-primary)]" data-lang-key="overviewTitle">Project Overview</h2>
+                        <p class="text-[var(--color-text-secondary)] mb-4 leading-relaxed" data-lang-key="pcgOverview1">
+                            Developed a Procedural Content Generation (PCG) city generator based on Houdini for my graduation project. 
+                            This tool allows users to generate complex city layouts with custom zoning, road networks, and building placements efficiently.
+                        </p>
+                        <p class="text-[var(--color-text-secondary)] mb-4 leading-relaxed" data-lang-key="pcgOverview2">
+                            The system supports visualized parameter panels within Unreal Engine 5 via Houdini Engine, enabling real-time adjustments and iterations.
+                        </p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-[var(--color-text-primary)]" data-lang-key="featuresTitle">Key Features</h3>
+                        <ul class="list-disc list-inside text-[var(--color-text-secondary)] space-y-2">
+                            <li data-lang-key="pcgFeat1">Custom City Zoning Algorithms</li>
+                            <li data-lang-key="pcgFeat2">Procedural Road Network Generation</li>
+                            <li data-lang-key="pcgFeat3">Visualized Parameter Panel in UE5</li>
+                            <li data-lang-key="pcgFeat4">External Asset Import Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <div class="card h-full">
+                        <h3 class="text-xl font-semibold mb-4 text-[var(--color-text-primary)]" data-lang-key="techTitle">Technologies</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">Houdini</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">Unreal Engine 5</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">Python</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">VEX</span>
+                        </div>
+
+                        <h3 class="text-xl font-semibold mb-4 text-[var(--color-text-primary)]" data-lang-key="linksTitle">Links</h3>
+                        <div class="flex flex-col gap-3">
+                            <a href="https://github.com/Davecodingking/PCG-city-generator" target="_blank" class="btn-primary">
+                                <i class="fa-brands fa-github mr-2"></i> <span data-lang-key="viewOnGithub">View on GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="pb-16">
+        <div class="container mx-auto text-center">
+            <p class="text-sm text-[var(--color-text-secondary)]" data-lang-key="footerText">
+                &copy; 2025 David He. Made using Tailwind CSS and hosted on GitHub Pages.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS 路径改为上一级 ../ -->
+    <script src="../script.js"></script>
+</body>
+</html>

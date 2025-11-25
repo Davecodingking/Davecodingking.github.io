@@ -114,6 +114,7 @@ footer p {
     text-align: justify;
 }
 
+/* 这里的 video 样式是给 index.html 卡片预览用的 */
 #projects .card video {
     filter: grayscale(25%);
     transition: filter 0.3s ease;
@@ -125,11 +126,14 @@ footer p {
 
 .btn-primary {
     background-color: var(--color-bg-light);
-    color: var(--color-bg-primary);
+    color: var(--color-white); /* 修正了之前的 color-bg-primary 变量名错误 */
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     text-decoration: none;
     font-weight: 600;
+    display: inline-flex; /* 确保图标对齐 */
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -263,4 +267,73 @@ footer p {
 .swiper-pagination-bullet-active {
     background: var(--color-text-primary) !important;
     opacity: 1 !important;
+}
+
+/* =========================================
+   【新增】详情页视频容器样式
+   ========================================= */
+.video-responsive-wrapper {
+    position: relative;
+    width: 100%;
+    /* 16:9 比例 (9 / 16 = 0.5625) */
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: 0.5rem; /* 圆角 */
+}
+
+.video-responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* =========================================
+   【新增】Image Comparison Slider 样式
+   适配 img-comparison-slider 组件
+   ========================================= */
+img-comparison-slider {
+    visibility: hidden; /* 避免加载时的闪烁 */
+    width: 100%;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+img-comparison-slider:hover {
+    box-shadow: 0 0 15px var(--color-text-primary);
+}
+
+/* 组件加载完成后显示 */
+img-comparison-slider:defined {
+    visibility: visible;
+}
+
+/* 自定义中间的把手样式 */
+.custom-handle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-bg-light); /* 使用你的主题色 */
+    border: 2px solid var(--color-text-primary);
+    color: var(--color-white);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: ew-resize; /* 左右箭头光标 */
+}
+
+/* 确保图片自适应 */
+img-comparison-slider img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="esPageTitle">Extreme Sports Game | David He</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+    <!-- 引入 Highlight.js 用于代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body class="antialiased leading-normal">
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-wrapper">
+        <div class="container py-20 md:py-24">
+            
+            <div class="mb-8 flex justify-between items-center">
+                <a href="../index.html#projects" class="text-[var(--color-text-secondary)] hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> <span data-lang-key="backToProjects">Back to Projects</span>
+                </a>
+            </div>
+
+            <h1 class="text-4xl font-bold text-[var(--color-text-primary)] mb-6" data-lang-key="proj1Title">Extreme Sports Game</h1>
+            
+            <!-- Video Section -->
+            <div class="card mb-8 p-2">
+                <div class="video-responsive-wrapper"
+                     data-youtube-id="3ATgUoj90eo"
+                     data-bilibili-id="BV1AHpuzzE7d">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <!-- Main Content -->
+                <div class="md:col-span-3 space-y-12">
+                    
+                    <!-- 1. Intro -->
+                    <section>
+                        <h2 class="section-subtitle mb-4">Introduction</h2>
+                        <div class="card">
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="esIntro">
+                                This project is a procedural level generation system for a mountain biking game inspired by "Riders Republic". My primary role was designing the pipeline for realistic terrain generation and an advanced procedural pathfinding system, utilizing Houdini for generation and Unreal Engine 5 for real-time gameplay.
+                            </p>
+                             <!-- Placeholder: Project Overview from PDF Fig 1 -->
+                            <div class="my-4 border border-[var(--color-bg-light)] rounded-lg overflow-hidden">
+                                <img src="../images/placeholder_es_overview.png" alt="Level Generation Overview" class="w-full h-auto object-cover">
+                                <p class="text-center text-sm text-[var(--color-text-secondary)] py-2">Figure 1: Procedural Terrain & Path System Overview</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 2. The Bridge (Key for Tech Art) -->
+                    <section>
+                        <h2 class="section-subtitle mb-4 text-[#ff9f43]">Tool Development: The Bridge</h2>
+                        <div class="card border border-[#ff9f43]/30">
+                            <h3 class="text-xl font-semibold mb-3 text-[var(--color-text-primary)]">Real-time Houdini-UE5 Integration</h3>
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="esBridge">
+                                A critical achievement of this project was bridging offline procedural generation with real-time level design. I developed a custom <b>Scriptable Tool</b> using Blueprints in Unreal Engine 5 that communicates directly with the Houdini Digital Asset (HDA).
+                            </p>
+                            <ul class="list-disc list-inside text-[var(--color-text-secondary)] mb-6 space-y-2">
+                                <li data-lang-key="esBridge1"><b>Two-Way Data Flow:</b> Designers can manipulate splines and parameters in UE5, triggering instant re-cooks in Houdini.</li>
+                                <li data-lang-key="esBridge2"><b>Custom Gizmos:</b> Implemented intuitive handles in UE5 for dragging, adding, and modifying path waypoints in real-time.</li>
+                                <li data-lang-key="esBridge3"><b>Instant Feedback:</b> The HDA recalculates terrain and paths in the background and updates the geometry in UE5 immediately.</li>
+                            </ul>
+                            <!-- Placeholder: Scriptable Tool Interface from PDF Fig 12/13 -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden">
+                                    <img src="../images/placeholder_es_toolui.png" alt="UE5 Custom Tool UI" class="w-full h-full object-cover">
+                                </div>
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden">
+                                    <img src="../images/placeholder_es_gizmo.png" alt="Real-time Gizmo Interaction" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <p class="text-center text-sm text-[var(--color-text-secondary)] py-2">Figure 2: Custom UE5 Scriptable Tools controlling Houdini Assets</p>
+                        </div>
+                    </section>
+
+                    <!-- 3. Terrain Generation -->
+                    <section>
+                        <h2 class="section-subtitle mb-4">Procedural Terrain</h2>
+                        <div class="card">
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="esTerrain">
+                                The terrain system uses a constructive approach. It starts with curve-based silhouette definition, followed by primitive blocking for mountain ranges. Realistic details are added using Worley Cellular noise and hydraulic/thermal erosion simulations to carve out natural flow patterns.
+                            </p>
+                            <div class="my-4 border border-[var(--color-bg-light)] rounded-lg overflow-hidden">
+                                <img src="../images/placeholder_es_terrain.png" alt="Terrain Erosion Process" class="w-full h-auto object-cover">
+                                <p class="text-center text-sm text-[var(--color-text-secondary)] py-2">Figure 3: Erosion Simulation & Surface Detailing</p>
+                            </div>
+                            
+                            <h3 class="text-lg font-semibold mt-6 mb-2 text-[var(--color-text-primary)]">Automated Material Layers</h3>
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="esMaterial">
+                                A custom auto-material was created in UE5 that reads mask data exported from Houdini. It automatically blends four distinct layers based on the erosion simulation results:
+                            </p>
+                            <ul class="flex flex-wrap gap-2 text-sm text-[var(--color-text-bright)]">
+                                <li class="bg-[var(--color-bg-dark)] px-3 py-1 rounded border border-[var(--color-text-secondary)]">Bedrock (Steep)</li>
+                                <li class="bg-[var(--color-bg-dark)] px-3 py-1 rounded border border-[var(--color-text-secondary)]">Sediment (Flat)</li>
+                                <li class="bg-[var(--color-bg-dark)] px-3 py-1 rounded border border-[var(--color-text-secondary)]">Debris (Slopes)</li>
+                                <li class="bg-[var(--color-bg-dark)] px-3 py-1 rounded border border-[var(--color-text-secondary)]">Water Flow</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 4. Pathfinding System (Updated) -->
+                    <section>
+                        <h2 class="section-subtitle mb-4">VEX Pathfinding System</h2>
+                        <div class="card">
+                            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="esPath">
+                                The pathfinding system is powered by a custom VEX cost engine. Instead of simple shortest-path algorithms, this engine calculates traversal costs based on slope and direction (ascent vs. descent).
+                            </p>
+                            <ul class="list-disc list-inside text-[var(--color-text-secondary)] mb-4 space-y-2">
+                                <li data-lang-key="esPath1"><b>Dynamic Cost Engine:</b> Analyzes local geometry to assign weights. Uphill movement is costlier than downhill.</li>
+                                <li data-lang-key="esPath2"><b>Optimization:</b> Uses a "Scatter Points" technique to create a lightweight topological mesh for calculation, avoiding expensive operations on the high-res terrain.</li>
+                            </ul>
+                            
+                            <!-- 【Updated Layout: Image + Code】 -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+                                <!-- Left: Pathfinding Visual -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden p-2 bg-white/5 h-full flex flex-col">
+                                    <img src="../images/placeholder_es_path.png" alt="Pathfinding Visualization" class="w-full h-auto object-contain flex-grow">
+                                    <p class="text-center text-sm text-[var(--color-text-secondary)] py-2">Figure 4: Directional Pathfinding Result</p>
+                                </div>
+                                
+                                <!-- Right: VEX Code Snippet -->
+                                <div class="border border-[var(--color-bg-light)] rounded-lg overflow-hidden bg-[#282c34] text-sm h-full flex flex-col">
+                                    <div class="bg-[#21252b] px-4 py-2 text-[var(--color-text-secondary)] text-xs border-b border-gray-700 font-mono">
+                                        cost_simulation (VEX)
+                                    </div>
+                                    <pre class="m-0 p-0 h-full overflow-auto custom-scrollbar"><code class="language-c text-xs leading-relaxed h-full">
+// Calculate base slope cost
+float slope_cost = (1-pow(dot(v@N,up),4)) * chf("slope_cost");
+
+// Direction aware costs
+float ascent_cost, descent_cost;
+if (edge_dir.y > 0) {
+    // Uphill movement (Costlier)
+    ascent_cost = pow(dot(edge_dir,up),4) * chf("ascent_cost");
+    descent_cost = 0;
+} else {
+    // Downhill movement (Cheaper)
+    descent_cost = pow(dot(edge_dir,up),4) * chf("descent_cost");
+    ascent_cost = 0;
+}
+
+// Aggregate final cost for pathfinding
+costs[i] = slope_cost + ascent_cost + descent_cost;
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- Sidebar -->
+                <div class="md:col-span-1">
+                    <div class="card sticky top-24">
+                        <h3 class="text-xl font-semibold mb-4 text-[var(--color-text-primary)]" data-lang-key="techTitle">Technologies</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">Houdini</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">Unreal Engine 5</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">VEX</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">Blueprints</span>
+                            <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm px-3 py-1 rounded-full border border-[var(--color-bg-light)]">Houdini Engine</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold mb-4 text-[var(--color-text-primary)]">Role Info</h3>
+                        <div class="text-sm text-[var(--color-text-secondary)] space-y-2">
+                            <p><span class="text-[var(--color-text-primary)]">Focus:</span> Technical Art / Tools</p>
+                            <p><span class="text-[var(--color-text-primary)]">Pipeline:</span> PCG & Automation</p>
+                            <p><span class="text-[var(--color-text-primary)]">Team:</span> 6 Members</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="pb-16">
+        <div class="container mx-auto text-center">
+            <p class="text-sm text-[var(--color-text-secondary)]" data-lang-key="footerText">
+                &copy; 2025 David He. Made using Tailwind CSS.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
