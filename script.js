@@ -589,6 +589,17 @@ document.addEventListener("DOMContentLoaded", () => {
         all ? document.querySelectorAll(selector) : document.querySelector(selector);
 
     const fixNavbarLinksForSubfolder = () => {
+        const path = window.location.pathname;
+        const isIndex = path.endsWith('/') || path.endsWith('/index.html') || path === '' ;
+        if (!isInSubfolder && !isIndex) {
+            document.querySelectorAll('nav a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) link.setAttribute('href', 'index.html' + href);
+            });
+            const homeLink = document.querySelector('.nav-title-group a');
+            if (homeLink) homeLink.setAttribute('href', 'index.html');
+            return;
+        }
         if (!isInSubfolder) return; 
 
         const navLinks = document.querySelectorAll('nav a');

@@ -382,7 +382,7 @@ img-comparison-slider img {
 .stat-label { font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 0.35rem; }
 
 /* project cards */
-.project-card-content { overflow: hidden; background: var(--color-bg-card); }
+.project-card-content { overflow: hidden; background: var(--color-bg-card); border-color: rgba(217,160,91,0.28); box-shadow: 0 6px 20px rgba(0,0,0,0.35); }
 .project-card-content:hover { box-shadow: 0 12px 30px rgba(0,0,0,0.35), 0 0 0 1px var(--color-accent); transform: translateY(-3px); }
 .project-card-content { transition: transform 0.2s ease, box-shadow 0.25s ease, border 0.3s ease; }
 .card-media { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
@@ -448,22 +448,23 @@ body { font-size: 1.05rem; }
 .hero-eyebrow, .card-meta, .tl-date { font-family: var(--font-family-main); }
 
 /* =========================================
-   Background: photo collage (no filter, width-fit, scrolls), hero image
+   Background: plain dark + faint grid; hero = B&W snow ridge, full resolution
    ========================================= */
 body {
     background-color: #1a1613;
-    background-image: url("images/bg/collage.jpg");
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    background-position: top center;
-    background-attachment: scroll;
+    background-image:
+        linear-gradient(rgba(217,160,91,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217,160,91,0.035) 1px, transparent 1px);
+    background-size: 36px 36px;
 }
 .content-wrapper { background: transparent; }
 .hero {
     background:
-        linear-gradient(to right, rgba(26,22,19,0.55), rgba(26,22,19,0.30)),
-        url("images/bg/hero.jpg") center / 100% 100% no-repeat;
+        linear-gradient(to right, rgba(26,22,19,0.92) 0%, rgba(26,22,19,0.70) 45%, rgba(26,22,19,0.25) 100%),
+        url("images/bg/hero.jpg") center 35% / cover no-repeat;
+    border-bottom: 1px solid rgba(217,160,91,0.35);
 }
+.hero-eyebrow, .hero h2, .hero p { text-shadow: 0 1px 10px rgba(0,0,0,0.6); }
 
 /* photography page */
 .photo-grid { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 180px; gap: 0.75rem; }
@@ -480,5 +481,9 @@ body {
 @media (max-width: 768px) { .photo-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; } .photo-grid a { grid-column: span 2 !important; grid-row: span 1 !important; } .ph-w2h2, .ph-w3h2 { grid-row: span 2 !important; } }
 
 /* readability over the photo background: no filter on the photos, just text shadow + solid nav */
-.section-title { text-shadow: 0 2px 14px rgba(0,0,0,0.85), 0 0 2px rgba(0,0,0,0.9); }
+
 #mainHeader { background-color: rgba(26,22,19,0.92) !important; }
+
+/* photography page hero */
+.ph-hero { border-radius: 0.9rem; overflow: hidden; border: 1px solid rgba(217,160,91,0.35); margin-bottom: 2rem; }
+.ph-hero img { width: 100%; height: auto; display: block; max-height: 560px; object-fit: cover; }
