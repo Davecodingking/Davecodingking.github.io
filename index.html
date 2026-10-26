@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<!-- data-lang 属性会被 script.js 用来设定初始语言 -->
 <html lang="en" data-lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 网站标题也会被翻译 -->
     <title data-lang-key="pageTitle">David He | Portfolio</title>
+    <meta name="description" content="David He (何锦程): Graphics & AI engineer. Neural rendering, monocular 3D scene reconstruction, procedural generation and game development.">
+    <meta property="og:title" content="David He | Graphics & AI Engineer">
+    <meta property="og:description" content="Neural rendering, 3D scene reconstruction from video, procedural generation and game development.">
+    <meta property="og:image" content="https://davecodingking.github.io/images/posters/nr_preview.jpg">
+    <meta property="og:type" content="website">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
 </head>
 
@@ -21,207 +24,265 @@
 
     <main class="content-wrapper">
 
-        <!-- Hero Section -->
-        <section class="bg-gradient-to-r from-[var(--color-bg-dark)] to-[var(--color-bg-card)] text-[var(--color-text-bright)] text-center flex flex-col items-center justify-center py-20 md:py-24 mb-8 rounded-b-xl">
-            <div class="container px-4 md:px-8">
-                <div class="flex flex-col md:flex-row items-center justify-between hero-content">
-                    <div class="md:w-1/3 flex justify-center md:justify-end mb-8 md:mb-0 pr-0 md:pr-8">
-                        <img src="images/pfp.png" alt="David He Profile Picture"
-                             class="w-56 h-56 md:w-64 md:h-64 object-cover rounded-full border-2 border-[var(--color-text-secondary)]">
+        <!-- ================= HERO ================= -->
+        <section id="top" class="hero rounded-b-xl mb-4">
+            <div class="container px-4 md:px-8 py-16 md:py-24">
+                <div class="flex flex-col md:flex-row items-center gap-10 hero-content">
+                    <div class="shrink-0">
+                        <img src="images/pfp.png" alt="David He"
+                             class="w-48 h-48 md:w-60 md:h-60 object-cover rounded-full border-2 border-[var(--color-accent)] shadow-lg">
                     </div>
-                    <div class="md:w-2/3 text-center md:text-left">
-
-                        <!-- 【新增部分开始】 -->
-                        <h2 class="text-3xl md:text-5xl font-bold mb-6 animate-fade-in text-[var(--color-text-primary)] leading-tight" data-lang-key="heroTitle">
-                            Researcher, Game Developer, Game Artist in my mind.
+                    <div class="text-center md:text-left">
+                        <p class="hero-eyebrow" data-lang-key="heroEyebrow">Graphics &amp; AI Engineer</p>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-[var(--color-text-primary)] leading-tight">
+                            <span data-lang-key="heroTrack1">Research</span><span class="text-[var(--color-accent)] mx-3">/</span><span data-lang-key="heroTrack2">Game Development</span>
                         </h2>
-                        <!-- 【新增部分结束】 -->
-
-                        <p class="text-xl md:text-3xl font-normal mb-4 animate-fade-in leading-relaxed" data-lang-key="heroDescription">
-                            I enjoy learning various technologies and developing games. I'm always enthusiastic on learning, building new skills, and bringing ideas to life.
+                        <p class="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl" data-lang-key="heroDescription">
+                            I build rendering and reconstruction systems where graphics meets learning: lightweight neural rendering for mobile GPUs, editable 3D scenes recovered from a single video, and procedural tools and gameplay in Unreal, Unity and from-scratch C++ engines.
                         </p>
+                        <div class="flex flex-wrap gap-3 justify-center md:justify-start mt-6">
+                            <a href="#research" class="btn-accent"><i class="fa-solid fa-flask mr-2"></i><span data-lang-key="heroBtnResearch">Research &amp; Pipelines</span></a>
+                            <a href="#games" class="btn-primary"><i class="fa-solid fa-gamepad mr-2"></i><span data-lang-key="heroBtnGames">Games &amp; Tools</span></a>
+                        </div>
                     </div>
                 </div>
-                <div id="tools-technologies" class="mt-12">
-                     <div class="flex flex-wrap justify-center items-center gap-4 py-4">
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Unreal Engine 5</div>
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Unity Engine</div>
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">C++</div>
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">C#</div>
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">DirectX 11</div>
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Python</div>
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">PyTorch</div>
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Blender</div>
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Houdini</div>
-                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Git</div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+                    <div class="stat"><div class="stat-num">90+ FPS</div><div class="stat-label" data-lang-key="heroStat1">neural rendering on a phone, 25 dB PSNR</div></div>
+                    <div class="stat"><div class="stat-num">1 video</div><div class="stat-label" data-lang-key="heroStat2">to a metric, editable 3D scene with animated people</div></div>
+                    <div class="stat"><div class="stat-num">7</div><div class="stat-label" data-lang-key="heroStat3">foundation models orchestrated in one pipeline</div></div>
+                    <div class="stat"><div class="stat-num">9</div><div class="stat-label" data-lang-key="heroStat4">shipped projects, from path tracers to UE5 levels</div></div>
+                </div>
+
+                <!-- Skills -->
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="skill-group">
+                        <div class="skill-title" data-lang-key="skillGraphics">Graphics &amp; ML</div>
+                        <div class="skill-tags"><span>C++</span><span>Python</span><span>PyTorch</span><span>DirectX 11</span><span>OpenGL</span><span>WebGL</span><span>3DGS</span><span>Neural Rendering</span></div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-title" data-lang-key="skillEngines">Engines &amp; Gameplay</div>
+                        <div class="skill-tags"><span>Unreal Engine 5</span><span>Unity</span><span>C#</span><span>Blueprints</span><span>Custom C++ engines</span></div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-title" data-lang-key="skillDcc">DCC &amp; Infra</div>
+                        <div class="skill-tags"><span>Blender</span><span>Houdini</span><span>Docker</span><span>Multi-GPU clusters</span><span>Git</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <!-- Projects Section -->
-        <section id="projects" class="container py-12 md:py-16">
-            <h2 class="section-title" data-lang-key="myWork">My Work</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                
-                <!-- Neural Rendering (2025-2026) -->
-                <a id="project-neural-rendering-link" href="projectset/project_neural_rendering.html" class="card project-card-content">
-                    <div class="relative w-full h-96 overflow-hidden rounded-t-lg bg-black">
-                        <video src="videos/nr_preview.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 bg-[linear-gradient(to_top,var(--color-bg-card),transparent)]">
-                            <div class=" flex flex-wrap gap-2 justify-start">
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">PyTorch</span>
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">Neural Rendering</span>
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">Blender</span>
-                            </div>
+        <!-- ================= RESEARCH ================= -->
+        <section id="research" class="container py-12 md:py-16">
+            <h2 class="section-title mb-2" data-lang-key="researchTitle">Research &amp; Pipelines</h2>
+            <p class="section-lead" data-lang-key="researchLead">Where I spend most of my time now: rendering and reconstruction systems that have to run in production, not just in a notebook.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <!-- Featured: Neural Rendering -->
+                <a id="project-neural-rendering-link" href="projectset/project_neural_rendering.html" class="card project-card-content md:col-span-2 featured">
+                    <div class="relative w-full h-72 md:h-[28rem] overflow-hidden rounded-t-lg bg-black">
+                        <video class="w-full h-full object-cover" poster="images/posters/nr_preview.jpg" preload="none" loop muted playsinline data-src="videos/nr_preview.mp4"></video>
+                        <div class="card-tags">
+                            <span>PyTorch</span><span>Neural Texture</span><span>Triplane SH</span><span>Mobile GPU</span>
                         </div>
+                        <span class="card-badge" data-lang-key="badgeFeatured">Featured</span>
                     </div>
-                    <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj0Title">Lightweight Dynamic Neural Rendering (2025-2026)</h3>
-                        <div class="project-description text-[var(--color-text-secondary)] mb-4 flex-grow" data-lang-key="proj0Desc">
-                           Research with PolyU and Huawei: neural textures plus triplane spherical-harmonic light probes and a dual-MLP shader render dynamic-GI scenes at 25 dB PSNR and 90+ FPS on a Huawei Mate 70 Pro.
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="card-meta"><span data-lang-key="proj0Org">PolyU x Huawei</span> · 2025-2026 · <span data-lang-key="proj0Role">Research Associate</span></div>
+                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj0Title">Lightweight Dynamic Neural Rendering</h3>
+                        <div class="project-description text-[var(--color-text-secondary)]" data-lang-key="proj0Desc">
+                            Neural textures plus triplane spherical-harmonic light probes and a dual-MLP shader render dynamic-GI scenes at 25 dB PSNR and 90+ FPS on a Huawei Mate 70 Pro, with 10x less probe storage than voxels.
                         </div>
                     </div>
                 </a>
 
-                <!-- 【更新】：Extreme Sports 链接指向新的详情页 -->
+                <!-- Scene reconstruction -->
+                <a id="project-scene-recon-link" href="projectset/project_scene_recon.html" class="card project-card-content">
+                    <div class="relative w-full h-72 overflow-hidden rounded-t-lg bg-black">
+                        <video class="w-full h-full object-cover" poster="images/posters/recon_preview.jpg" preload="none" loop muted playsinline data-src="videos/recon_preview.mp4"></video>
+                        <div class="card-tags"><span>SAM 3</span><span>SAM 3D</span><span>Depth Anything 3</span><span>Qwen3-VL</span></div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="card-meta">WarpEngine · 2026 · <span data-lang-key="proj7Role">Backend Pipeline Engineer</span></div>
+                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj7Title">Monocular Video to Editable 3D Scene</h3>
+                        <div class="project-description text-[var(--color-text-secondary)]" data-lang-key="proj7Desc">
+                            Seven foundation models, one pipeline: objects as placed meshes at real scale, people as animated characters, physics-settled, delivered as FBX. Five stages, five human gates.
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 3DGS to mesh -->
+                <a id="project-gs2mesh-link" href="projectset/project_gs2mesh.html" class="card project-card-content">
+                    <div class="relative w-full h-72 overflow-hidden rounded-t-lg bg-black">
+                        <img src="images/posters/gs2mesh.jpg" alt="3DGS object replacement" class="w-full h-full object-cover">
+                        <div class="card-tags"><span>3DGS</span><span>SAM 3</span><span>SAM 3D Objects</span><span>gsplat</span></div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="card-meta">WarpEngine · 2026 · <span data-lang-key="proj8Role">Tooling</span></div>
+                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj8Title">3DGS Object Replacement with Generated Meshes</h3>
+                        <div class="project-description text-[var(--color-text-secondary)]" data-lang-key="proj8Desc">
+                            Point at an object in a Gaussian-splat room; it is carved out and replaced by a generated, textured mesh refined against seven views until the silhouettes match. About four minutes per object.
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================= GAMES ================= -->
+        <section id="games" class="container py-12 md:py-16">
+            <h2 class="section-title mb-2" data-lang-key="gamesTitle">Games &amp; Tools</h2>
+            <p class="section-lead" data-lang-key="gamesLead">Levels, engines and renderers built during my MSc at Warwick and before. Hover a card to play.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
                 <a id="project-extreme-sports-link" href="projectset/project_extreme_sports.html" class="card project-card-content">
-                    <div class="relative w-full h-96 overflow-hidden rounded-t-lg bg-black">
-                        <video src="videos/extremespoortshort.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 bg-[linear-gradient(to_top,var(--color-bg-card),transparent)]">
-                            <div class=" flex flex-wrap gap-2 justify-start">
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">UE5</span>
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">Houdini</span>
-                            </div>
-                        </div>
+                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                        <video class="w-full h-full object-cover" poster="images/posters/extremespoortshort.jpg" preload="none" loop muted playsinline data-src="videos/extremespoortshort.mp4"></video>
+                        <div class="card-tags"><span>UE5</span><span>Houdini</span></div>
                     </div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj1Title">Extreme Sports Game (2025)</h3>
-                        <div class="project-description text-[var(--color-text-secondary)] mb-4 flex-grow" data-lang-key="proj1Desc">
-                           A collaborative development project where I was responsible for level design and generation, as well as core gameplay implementation.
+                        <div class="card-meta">2025 · <span data-lang-key="proj1Role">Level generation, gameplay</span></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj1Title">Extreme Sports Game</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj1Desc">
+                            Procedural terrain with erosion and a VEX cost-based path generator, driven from UE5 through a custom Houdini bridge tool.
                         </div>
                     </div>
                 </a>
 
-                <!-- 【修改 1：2D 机甲游戏链接更新】 -->
-                <a id="project-2d-shooter-link" href="projectset/project_2d_mecha.html" class="card project-card-content">
-                    <div class="relative w-full h-96 overflow-hidden rounded-t-lg bg-black">
-                        <video src="videos/2drogueshort.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 bg-[linear-gradient(to_top,var(--color-bg-card),transparent)]">
-                            <div class=" flex flex-wrap gap-2 justify-start">
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">C++</span>
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">Blender</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj2Title">2D Pixel Mecha Shooter (2024)</h3>
-                        <div class="project-description text-[var(--color-text-secondary)] mb-4 flex-grow" data-lang-key="proj2Desc">
-                           Fully implemented a 2D dual joystick shooter in C++ for the Warwick University Game Jam, including custom NPC data, a data-driven map, collision detection, and animations.
-                        </div>
-                    </div>
-                </a>
-                
-                <!-- 【PCG 项目链接（保持之前更新过的正确状态）】 -->
                 <a id="project-pcg-link" href="projectset/project_pcg.html" class="card project-card-content">
-                    <div class="relative w-full h-96 overflow-hidden rounded-t-lg bg-black">
-                        <!-- 注意：请确保您有名为 videos/pcg_preview.mp4 的文件 -->
-                        <video src="videos/pcg_preview.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 bg-[linear-gradient(to_top,var(--color-bg-card),transparent)]">
-                            <div class=" flex flex-wrap gap-2 justify-start">
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">PCG</span>
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">Houdini</span>
-                            </div>
-                        </div>
+                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                        <video class="w-full h-full object-cover" poster="images/posters/pcg_preview.jpg" preload="none" loop muted playsinline data-src="videos/pcg_preview.mp4"></video>
+                        <div class="card-tags"><span>PCG</span><span>Houdini</span><span>UE5</span></div>
                     </div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj3Title">PCG City Generator (2024-2025)</h3>
-                        <div class="project-description text-[var(--color-text-secondary)] mb-4 flex-grow" data-lang-key="proj3Desc">
-                           Developed a PCG city generator based on Houdini for my graduation project. It supports custom city zoning, roads, visualized parameter panel, and external asset import.
+                        <div class="card-meta">2024-2025 · <span data-lang-key="proj3Role">MSc dissertation</span></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj3Title">PCG City Generator</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj3Desc">
+                            Houdini city generator with custom zoning, road networks, a visual parameter panel inside UE5 and external asset import.
                         </div>
                     </div>
                 </a>
 
-                <!-- 【修改 2：光线追踪链接更新】 -->
                 <a id="project-ray-tracer-link" href="projectset/project_raytracer.html" class="card project-card-content">
-                    <div class="relative w-full h-96 overflow-hidden rounded-t-lg bg-black">
-                        <video src="videos/rtbase.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 bg-[linear-gradient(to_top,var(--color-bg-card),transparent)]">
-                            <div class=" flex flex-wrap gap-2 justify-start">
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">C++</span>
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">DirectX 11</span>
-                            </div>
-                        </div>
+                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                        <video class="w-full h-full object-cover" poster="images/posters/rtbase.jpg" preload="none" loop muted playsinline data-src="videos/rtbase.mp4"></video>
+                        <div class="card-tags"><span>C++</span><span>PBRT</span></div>
                     </div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj4Title">Basic Ray Tracing Renderer (2024)</h3>
-                        <div class="project-description text-[var(--color-text-secondary)] mb-4 flex-grow" data-lang-key="proj4Desc">
-                           Implemented core rendering functions like PBR and path tracing, along with the GGX microfacet model, importance sampling, and adaptive sampling.
+                        <div class="card-meta">2024 · <span data-lang-key="proj4Role">Solo</span></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj4Title">CPU Ray Tracer</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj4Desc">
+                            Path tracing, light tracing and instant radiosity with MIS, GGX microfacets, BVH, adaptive sampling and OIDN denoising.
+                        </div>
+                    </div>
+                </a>
+
+                <a id="project-2d-shooter-link" href="projectset/project_2d_mecha.html" class="card project-card-content">
+                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                        <video class="w-full h-full object-cover" poster="images/posters/2drogueshort.jpg" preload="none" loop muted playsinline data-src="videos/2drogueshort.mp4"></video>
+                        <div class="card-tags"><span>C++</span><span>DirectX</span><span>Blender</span></div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="card-meta">2024 · <span data-lang-key="proj2Role">Game Jam, solo</span></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj2Title">2D Pixel Mecha Shooter</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj2Desc">
+                            Twin-stick shooter on a from-scratch C++ engine: data-driven maps, FSM enemies, sprite animation, collision.
                         </div>
                     </div>
                 </a>
 
                 <a id="project-rasterizer-link" href="https://github.com/Davecodingking/Rasterizer" target="_blank" rel="noopener noreferrer" class="card project-card-content">
-                    <div class="relative w-full h-96 overflow-hidden rounded-t-lg bg-black">
-                        <video src="videos/rasterizershort.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 bg-[linear-gradient(to_top,var(--color-bg-card),transparent)]">
-                            <div class=" flex flex-wrap gap-2 justify-start">
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">C++</span>
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">DirectX 11</span>
-                            </div>
-                        </div>
+                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                        <video class="w-full h-full object-cover" poster="images/posters/rasterizershort.jpg" preload="none" loop muted playsinline data-src="videos/rasterizershort.mp4"></video>
+                        <div class="card-tags"><span>C++</span><span>DirectX 11</span></div>
                     </div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj5Title">3D Game Rasterization Engine (2024)</h3>
-                        <div class="project-description text-[var(--color-text-secondary)] mb-4 flex-grow" data-lang-key="proj5Desc">
-                           Developed a basic 3D engine using C++/DirectX 11, implementing key rendering features like deferred shading, skeletal animation, and collision detection.
+                        <div class="card-meta">2024 · <span data-lang-key="proj5Role">Solo</span> · <i class="fa-brands fa-github"></i></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj5Title">3D Rasterization Engine</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj5Desc">
+                            DirectX 11 engine with deferred shading, skeletal animation and collision detection.
                         </div>
                     </div>
                 </a>
-                
+
                 <a id="project-seed-of-eden-link" href="https://youtu.be/riH4wzVhWWE?si=Yx-EPM6aKFZYzFa9" target="_blank" rel="noopener noreferrer" class="card project-card-content">
-                    <div class="relative w-full h-96 overflow-hidden rounded-t-lg bg-black">
-                        <video src="videos/soeshort.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
-                        <div class="absolute bottom-0 left-0 right-0 p-2 bg-[linear-gradient(to_top,var(--color-bg-card),transparent)]">
-                            <div class=" flex flex-wrap gap-2 justify-start">
-                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">Unity3D</span>
-                            </div>
-                        </div>
+                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                        <video class="w-full h-full object-cover" poster="images/posters/soeshort.jpg" preload="none" loop muted playsinline data-src="videos/soeshort.mp4"></video>
+                        <div class="card-tags"><span>Unity3D</span><span>C#</span></div>
                     </div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj6Title">Unity3D Survival Game "Seed of Eden" (2022)</h3>
-                        <div class="project-description text-[var(--color-text-secondary)] mb-4 flex-grow" data-lang-key="proj6Desc">
-                           Implemented core game systems for a survival game, including item management, combat, crafting, and building systems.
+                        <div class="card-meta">2022 · <span data-lang-key="proj6Role">Solo</span> · <i class="fa-brands fa-youtube"></i></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj6Title">Survival Game "Seed of Eden"</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj6Desc">
+                            Inventory, combat, crafting and building systems for a Unity sandbox survival game.
                         </div>
                     </div>
                 </a>
             </div>
         </section>
 
-        <!-- Education Section -->
+        <!-- ================= EXPERIENCE (timeline) ================= -->
+        <section id="experience" class="container py-12 md:py-16">
+            <h2 class="section-title" data-lang-key="experience">Experience</h2>
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-date" data-lang-key="exp1Date">Jul 2026 - Present</div>
+                    <div class="tl-body">
+                        <h3 data-lang-key="exp1Title">Backend Pipeline Engineer</h3>
+                        <p class="tl-org" data-lang-key="exp1Company">WarpEngine, Algorithm &amp; Technology Dept.</p>
+                        <ul>
+                            <li data-lang-key="exp1Desc1">Built an end-to-end pipeline that reconstructs editable, metric-scale 3D scenes from monocular video for world-model training.</li>
+                            <li data-lang-key="exp1Desc2">Maintain an automated scene-scanning and batch-export toolchain, and the dispatch service of a multi-node, multi-GPU rendering cluster.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-date" data-lang-key="exp2Date">Dec 2025 - Jul 2026</div>
+                    <div class="tl-body">
+                        <h3 data-lang-key="exp2Title">Research Associate</h3>
+                        <p class="tl-org" data-lang-key="exp2Company">The Hong Kong Polytechnic University, Department of Computing</p>
+                        <ul>
+                            <li data-lang-key="exp2Desc1">Huawei lightweight dynamic neural rendering project: neural textures, triplane SH light probes and a dual-MLP shader (see project page).</li>
+                            <li data-lang-key="exp2Desc2">Built Blender / Unreal scenes and the automated G-buffer data pipeline. Paper in preparation for TVCG.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-date" data-lang-key="exp3Date">Jul 2025 - Sept 2025</div>
+                    <div class="tl-body">
+                        <h3 data-lang-key="exp3Title">Research Assistant Intern</h3>
+                        <p class="tl-org" data-lang-key="exp3Company">The Hong Kong University of Science and Technology (Guangzhou)</p>
+                        <ul><li data-lang-key="exp3Desc1">Unity-based VR visualization for Procedural Content Generation (PCG) research projects.</li></ul>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-date" data-lang-key="exp4Date">Jul 2022 - Sept 2022</div>
+                    <div class="tl-body">
+                        <h3 data-lang-key="exp4Title">IT Department Intern</h3>
+                        <p class="tl-org" data-lang-key="exp4Company">BMW Brilliance Automotive</p>
+                        <ul><li data-lang-key="exp4Desc1">Contributed to the update of the internal JOYCHAT application's shuttle route module and ran end-to-end functional tests for all new routes.</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= EDUCATION ================= -->
         <section id="education" class="container py-12 md:py-16">
             <h2 class="section-title" data-lang-key="education">Education</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 place-items-start">
-                <div class="card w-full max-w-lg mx-auto">
-                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="edu1Title">
-                        Master of Science, Game Engineering
-                    </h3>
-                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="edu1School">
-                        University of Warwick
-                    </p>
-                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="edu1Date">Sept 2024 - Sept 2025</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="edu1Title">Master of Science, Game Engineering</h3>
+                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="edu1School">University of Warwick</p>
+                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="edu1Date">Sept 2024 - Jan 2026</p>
                     <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
                         <li data-lang-key="edu1Desc1">Advanced Computer Graphics, Machine Learning, Game Design</li>
                     </ul>
                 </div>
-                <div class="card w-full max-w-lg mx-auto">
-                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="edu2Title">
-                        Bachelor of Science, Computer Science
-                    </h3>
-                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="edu2School">
-                        Hong Kong Baptist University
-                    </p>
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="edu2Title">Bachelor of Science, Computer Science</h3>
+                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="edu2School">Hong Kong Baptist University</p>
                     <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="edu2Date">Sept 2020 - Jul 2024</p>
                     <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
                         <li data-lang-key="edu2Desc1">Data Structures and Algorithms, Operating Systems, Deep Learning, Computational Theory</li>
@@ -229,71 +290,26 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Experience Section -->
-        <section id="experience" class="container py-12 md:py-16">
-            <h2 class="section-title" data-lang-key="experience">Professional Experience</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                <div class="card w-full">
-                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="exp1Title">Backend Pipeline Engineer</h3>
-                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="exp1Company">WarpEngine, Algorithm &amp; Technology Dept.</p>
-                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="exp1Date">Jul 2026 - Present</p>
-                    <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
-                        <li data-lang-key="exp1Desc1">Built an end-to-end pipeline that reconstructs editable, metric-scale 3D scenes from monocular video for world-model training.</li>
-                        <li data-lang-key="exp1Desc2">Maintain an automated scene-scanning and batch-export toolchain, and the dispatch service of a multi-node, multi-GPU rendering cluster.</li>
-                    </ul>
-                </div>
-                <div class="card w-full">
-                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="exp2Title">Research Associate</h3>
-                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="exp2Company">The Hong Kong Polytechnic University, Department of Computing</p>
-                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="exp2Date">Dec 2025 - Jul 2026</p>
-                    <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
-                        <li data-lang-key="exp2Desc1">Huawei lightweight dynamic neural rendering project: neural textures, triplane SH light probes and a dual-MLP shader (see project page).</li>
-                        <li data-lang-key="exp2Desc2">Built Blender / Unreal scenes and the automated G-buffer data pipeline. Paper in preparation for TVCG.</li>
-                    </ul>
-                </div>
-                <div class="card w-full">
-                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="exp3Title">Research Assistant Intern</h3>
-                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="exp3Company">The Hong Kong University of Science and Technology (Guangzhou)</p>
-                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="exp3Date">Jul 2025 - Sept 2025</p>
-                    <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
-                        <li data-lang-key="exp3Desc1">Unity-based VR visualization for Procedural Content Generation (PCG) research projects.</li>
-                    </ul>
-                </div>
-                <div class="card w-full">
-                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="exp4Title">IT Department Intern</h3>
-                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="exp4Company">BMW Brilliance Automotive</p>
-                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="exp4Date">Jul 2022 - Sept 2022</p>
-                    <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
-                        <li data-lang-key="exp4Desc1">Contributed to the update of the internal JOYCHAT application's shuttle route module and ran end-to-end functional tests for all new routes.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
 
-        <!-- Contact Section -->
+        <!-- ================= CONTACT ================= -->
         <section id="contact" class="container py-12 md:py-16">
             <h2 class="section-title" data-lang-key="contact">Get in Touch</h2>
-            <div class="card text-center max-w-lg mx-auto">
+            <div class="card text-center max-w-2xl mx-auto">
                 <p class="text-lg mb-6 text-[var(--color-text-bright)]" data-lang-key="contactDesc">
-                    I'm always open to new opportunities, collaborations, and conversations. Feel free to reach out!
+                    Open to research and engineering roles in graphics, neural rendering and 3D reconstruction. Happy to talk about any of the projects above.
                 </p>
-                <div class="flex justify-center items-center gap-x-6 mb-6">
-                    <a href="mailto:hedavidjc@gmail.com"
-                       class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-bright)] flex items-center">
-                        <i class="fa-solid fa-envelope text-xl mr-2"></i>
-                        <span>hedavidjc@gmail.com</span>
-                    </a>
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mb-4">
+                    <a href="mailto:hedavidjc@gmail.com" class="contact-link"><i class="fa-solid fa-envelope text-xl mr-2"></i><span>hedavidjc@gmail.com</span></a>
+                    <a href="https://wa.me/447436400952" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-brands fa-whatsapp text-xl mr-2"></i><span>+44 7436 400952</span></a>
+                    <a href="https://github.com/Davecodingking" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-brands fa-github text-xl mr-2"></i><span>Davecodingking</span></a>
+                    <a href="https://www.linkedin.com/in/jincheng-he-751474332/" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-brands fa-linkedin text-xl mr-2"></i><span>LinkedIn</span></a>
                 </div>
-                <!-- This container will only be visible in Chinese version -->
                 <div id="zh-contact-info" class="hidden text-[var(--color-text-secondary)]">
-                     <div class="flex justify-center items-center mb-2">
-                        <i class="fa-solid fa-mobile-screen-button text-xl mr-2"></i>
-                        <span data-lang-key="contactPhone"></span>
+                    <div class="flex justify-center items-center mb-2">
+                        <i class="fa-solid fa-mobile-screen-button text-xl mr-2"></i><span data-lang-key="contactPhone"></span>
                     </div>
                     <div class="flex justify-center items-center">
-                        <i class="fa-brands fa-weixin text-xl mr-2"></i>
-                        <span data-lang-key="contactWechat"></span>
+                        <i class="fa-brands fa-weixin text-xl mr-2"></i><span data-lang-key="contactWechat"></span>
                     </div>
                 </div>
             </div>
@@ -301,18 +317,15 @@
 
     </main>
 
-    <!-- footer -->
     <footer class="pb-16">
         <div class="container mx-auto text-center">
             <p class="text-sm text-[var(--color-text-secondary)]" data-lang-key="footerText">
-                &copy; 2025 David He. Made using Tailwind CSS and hosted on GitHub Pages.
+                &copy; 2026 David He. Made using Tailwind CSS and hosted on GitHub Pages.
             </p>
         </div>
     </footer>
 
-    <a href="#" class="back-to-top invisible" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <a href="#" class="back-to-top invisible" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
     <script src="script.js"></script>
 </body>

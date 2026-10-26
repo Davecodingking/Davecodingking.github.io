@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="gmPageTitle">3DGS Object Replacement | David He</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
+</head>
+
+<body class="antialiased leading-normal">
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-wrapper">
+        <div class="container py-20 md:py-24">
+
+            <div class="mb-8 flex justify-between items-center">
+                <a href="../index.html#research" class="text-[var(--color-text-secondary)] hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> <span data-lang-key="backToProjects">Back to Projects</span>
+                </a>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-2" data-lang-key="gmTitle">3DGS Object Replacement with Generated Meshes</h1>
+            <p class="text-lg text-[var(--color-text-secondary)] mb-6" data-lang-key="gmSubtitle">WarpEngine (Oct 2026). Turn one object in a Gaussian-splat room into an editable, textured mesh that sits exactly where the old one was.</p>
+
+            <div class="flex flex-wrap gap-2 mb-10">
+                <span class="tag">3D Gaussian Splatting</span><span class="tag">SAM 3</span><span class="tag">SAM 3D Objects</span><span class="tag">gsplat</span><span class="tag">nvdiffrast</span><span class="tag">Python</span><span class="tag">Web viewer</span>
+            </div>
+
+            <!-- Overview -->
+            <section class="mb-12">
+                <h2 class="section-subtitle mb-4" data-lang-key="overviewTitle">Project Overview</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="gmOverview1">
+                        A 3DGS scene looks great but nothing in it can be moved. This tool takes a panorama, the room's 3DGS, and a prompt or a click, and replaces that object with a generated mesh: the old Gaussians are carved out, the new mesh is placed, scaled and refined until its silhouette matches the original from every view.
+                    </p>
+                    <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed" data-lang-key="gmOverview2">
+                        Only two models are involved, both local: SAM 3 for segmentation, SAM 3D Objects for mesh generation. Everything else (placement, point removal, multi-view refinement, checks) is deterministic geometry. A web viewer lets you add objects, watch progress, inspect in 3D and hand-fix point removal.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                        <div class="stat"><div class="stat-num">15</div><div class="stat-label" data-lang-key="gmStat1">steps, each a restartable module</div></div>
+                        <div class="stat"><div class="stat-num">~4 min</div><div class="stat-label" data-lang-key="gmStat2">per object on one RTX 3090</div></div>
+                        <div class="stat"><div class="stat-num">7</div><div class="stat-label" data-lang-key="gmStat3">views vote on every Gaussian</div></div>
+                        <div class="stat"><div class="stat-num">2</div><div class="stat-label" data-lang-key="gmStat4">models, no cloud calls</div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Result -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="gmResultTitle">Result: coffee table, three cameras</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] mb-6" data-lang-key="gmResultDesc">
+                        Columns: original photo (top row only), the original 3DGS, after carving, after carving with the mesh placed, and the Gaussians that were removed. Rows: the generation camera, then the camera shifted 0.3 m left and right. The mesh holds its place when the camera moves; the carved hole is covered without leaving floaters.
+                    </p>
+                    <img src="../images/gs2mesh/table_check.jpg" alt="Coffee table replacement checked from three cameras" class="w-full rounded-lg border border-[var(--color-bg-light)]">
+                </div>
+            </section>
+
+            <!-- Before/after slider -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="gmSliderTitle">Armchair: before and after</h2>
+                <div class="card">
+                    <p class="text-[var(--color-text-secondary)] mb-6" data-lang-key="gmSliderDesc">Drag to compare the original 3DGS with the carved scene plus the generated mesh, rendered from the same camera.</p>
+                    <div class="relative w-full max-w-[800px] mx-auto">
+                        <span class="absolute top-4 left-4 px-3 py-1 text-xs font-bold rounded bg-black/70 text-white z-10 border border-white/20" data-lang-key="gmSliderBefore">Original 3DGS</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 text-xs font-bold rounded bg-black/70 text-white z-10 border border-white/20" data-lang-key="gmSliderAfter">Carved + mesh</span>
+                        <img-comparison-slider>
+                            <img slot="first" src="../images/gs2mesh/sofa_cmp_before.jpg" class="w-full h-auto block" alt="Before" />
+                            <img slot="second" src="../images/gs2mesh/sofa_cmp_after.jpg" class="w-full h-auto block" alt="After" />
+                            <div slot="handle" class="custom-handle"><i class="fa-solid fa-arrows-left-right"></i></div>
+                        </img-comparison-slider>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pipeline -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="gmArchTitle">Pipeline</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] mb-6" data-lang-key="gmArchDesc">
+                        One entry script reads the object list, claims a GPU, runs each step in its own conda environment and writes a status file the viewer polls. Steps can be rerun from any point; changing a field (which surface the object rests on, a different seed) reruns only what depends on it.
+                    </p>
+                    <div class="nr-diagram">
+                        <img src="../images/gs2mesh/pipeline.svg" alt="3dgs2mesh pipeline">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Steps -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="gmStepsTitle">The steps that matter</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-[var(--color-text-primary)] mb-2" data-lang-key="gmS1Title">1. Segment and generate</h3>
+                        <p class="text-[var(--color-text-secondary)] mb-4" data-lang-key="gmS1Desc">SAM 3 picks the instance by prompt or click and merges listed parts (pillow, blanket) into the mask. SAM 3D Objects turns that one cutout into a textured mesh with its predicted pose.</p>
+                        <img src="../images/gs2mesh/sofa_mask.jpg" alt="SAM 3 mask of the armchair" class="w-full rounded-lg border border-[var(--color-bg-light)] mb-3">
+                        <img src="../images/gs2mesh/sofa_preview.jpg" alt="Generated armchair mesh from four sides" class="w-full rounded-lg border border-[var(--color-bg-light)]">
+                    </div>
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-[var(--color-text-primary)] mb-2" data-lang-key="gmS2Title">2. Place, vote, carve, refine</h3>
+                        <p class="text-[var(--color-text-secondary)] mb-4" data-lang-key="gmS2Desc">Scene points inside the mask are the old object: the mesh is uprighted and searched over orientation, scale and position with its lowest point on the floor. Six extra views are rendered around the object, SAM 3 masks each, every Gaussian is voted object / unseen / other, and the object's footprint is extruded and removed as one block. Finally the mesh is refined against all silhouettes: orientation within 15 degrees, uniform scale, per-axis stretch within 10 percent.</p>
+                        <img src="../images/gs2mesh/table_views_iou.jpg" alt="Multi-view silhouette IoU after refinement" class="w-full rounded-lg border border-[var(--color-bg-light)]">
+                        <p class="text-sm text-[var(--color-text-secondary)] mt-2" data-lang-key="gmS2Cap">Yellow: SAM 3 mask. Red: refined mesh silhouette. IoU per view after fitting.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Input -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="gmInputTitle">Input</h2>
+                <div class="card">
+                    <p class="text-[var(--color-text-secondary)] mb-4" data-lang-key="gmInputDesc">One panorama and the matching 3DGS. When the panorama centre looks down on an object too steeply (the coffee table), the generation image is rendered from the 3DGS at a better camera instead.</p>
+                    <img src="../images/gs2mesh/pano.jpg" alt="Input panorama" class="w-full rounded-lg border border-[var(--color-bg-light)]">
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="pb-16">
+        <div class="container mx-auto text-center">
+            <p class="text-sm text-[var(--color-text-secondary)]" data-lang-key="footerText">&copy; 2026 David He.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
