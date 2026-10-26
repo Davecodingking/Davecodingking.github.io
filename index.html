@@ -28,46 +28,28 @@
         <section id="top" class="hero rounded-b-xl mb-4">
             <div class="container px-4 md:px-8 py-16 md:py-24">
                 <div class="flex flex-col md:flex-row items-center gap-10 hero-content">
-                    <div class="shrink-0">
+                    <div class="shrink-0 hero-avatar">
                         <img src="images/pfp.png" alt="David He"
-                             class="w-48 h-48 md:w-60 md:h-60 object-cover rounded-full border-2 border-[var(--color-accent)] shadow-lg">
+                             class="w-52 h-52 md:w-64 md:h-64 object-cover rounded-full">
                     </div>
                     <div class="text-center md:text-left">
-                        <p class="hero-eyebrow" data-lang-key="heroEyebrow">Graphics &amp; AI Engineer</p>
-                        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-[var(--color-text-primary)] leading-tight">
-                            <span data-lang-key="heroTrack1">Research</span><span class="text-[var(--color-accent)] mx-3">/</span><span data-lang-key="heroTrack2">Game Development</span>
+                        <p class="hero-eyebrow"><span data-lang-key="heroEyebrow">Graphics &amp; AI Engineer</span><span class="hero-sep">·</span><span data-lang-key="heroTrack1">Research</span><span class="hero-sep">/</span><span data-lang-key="heroTrack2">Game Development</span></p>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-5 text-[var(--color-text-primary)] leading-tight" data-lang-key="heroTitle">
+                            Researcher, Game Developer, Game Artist in my mind.
                         </h2>
-                        <p class="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl" data-lang-key="heroDescription">
-                            I build rendering and reconstruction systems where graphics meets learning: lightweight neural rendering for mobile GPUs, editable 3D scenes recovered from a single video, and procedural tools and gameplay in Unreal, Unity and from-scratch C++ engines.
+                        <p class="text-lg md:text-2xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl" data-lang-key="heroDescription">
+                            I enjoy learning various technologies and developing games. I'm always enthusiastic on learning, building new skills, and bringing ideas to life.
                         </p>
-                        <div class="flex flex-wrap gap-3 justify-center md:justify-start mt-6">
+                        <div class="flex flex-wrap gap-3 justify-center md:justify-start mt-7">
                             <a href="#research" class="btn-accent"><i class="fa-solid fa-flask mr-2"></i><span data-lang-key="heroBtnResearch">Research &amp; Pipelines</span></a>
                             <a href="#games" class="btn-primary"><i class="fa-solid fa-gamepad mr-2"></i><span data-lang-key="heroBtnGames">Games &amp; Tools</span></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-                    <div class="stat"><div class="stat-num">90+ FPS</div><div class="stat-label" data-lang-key="heroStat1">neural rendering on a phone, 25 dB PSNR</div></div>
-                    <div class="stat"><div class="stat-num">1 video</div><div class="stat-label" data-lang-key="heroStat2">to a metric, editable 3D scene with animated people</div></div>
-                    <div class="stat"><div class="stat-num">7</div><div class="stat-label" data-lang-key="heroStat3">foundation models orchestrated in one pipeline</div></div>
-                    <div class="stat"><div class="stat-num">9</div><div class="stat-label" data-lang-key="heroStat4">shipped projects, from path tracers to UE5 levels</div></div>
-                </div>
-
-                <!-- Skills -->
-                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                    <div class="skill-group">
-                        <div class="skill-title" data-lang-key="skillGraphics">Graphics &amp; ML</div>
-                        <div class="skill-tags"><span>C++</span><span>Python</span><span>PyTorch</span><span>DirectX 11</span><span>OpenGL</span><span>WebGL</span><span>3DGS</span><span>Neural Rendering</span></div>
-                    </div>
-                    <div class="skill-group">
-                        <div class="skill-title" data-lang-key="skillEngines">Engines &amp; Gameplay</div>
-                        <div class="skill-tags"><span>Unreal Engine 5</span><span>Unity</span><span>C#</span><span>Blueprints</span><span>Custom C++ engines</span></div>
-                    </div>
-                    <div class="skill-group">
-                        <div class="skill-title" data-lang-key="skillDcc">DCC &amp; Infra</div>
-                        <div class="skill-tags"><span>Blender</span><span>Houdini</span><span>Docker</span><span>Multi-GPU clusters</span><span>Git</span></div>
+                <div id="tools-technologies" class="mt-12">
+                    <div class="flex flex-wrap justify-center items-center gap-3 py-2 hero-skills">
+                        <span>C++</span><span>Python</span><span>PyTorch</span><span>DirectX 11</span><span>Unreal Engine 5</span><span>Unity</span><span>C#</span><span>Blender</span><span>Houdini</span><span>3DGS</span><span>Docker</span><span>Git</span>
                     </div>
                 </div>
             </div>
@@ -75,14 +57,13 @@
 
         <!-- ================= RESEARCH ================= -->
         <section id="research" class="container py-12 md:py-16">
-            <h2 class="section-title mb-2" data-lang-key="researchTitle">Research &amp; Pipelines</h2>
-            <p class="section-lead" data-lang-key="researchLead">Where I spend most of my time now: rendering and reconstruction systems that have to run in production, not just in a notebook.</p>
+            <h2 class="section-title" data-lang-key="researchTitle">Research &amp; Pipelines</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                 <!-- Featured: Neural Rendering -->
                 <a id="project-neural-rendering-link" href="projectset/project_neural_rendering.html" class="card project-card-content md:col-span-2 featured">
-                    <div class="relative w-full h-72 md:h-[28rem] overflow-hidden rounded-t-lg bg-black">
+                    <div class="card-media card-media-wide">
                         <video class="w-full h-full object-cover" poster="images/posters/nr_preview.jpg" preload="none" loop muted playsinline data-src="videos/nr_preview.mp4"></video>
                         <div class="card-tags">
                             <span>PyTorch</span><span>Neural Texture</span><span>Triplane SH</span><span>Mobile GPU</span>
@@ -100,7 +81,7 @@
 
                 <!-- Scene reconstruction -->
                 <a id="project-scene-recon-link" href="projectset/project_scene_recon.html" class="card project-card-content">
-                    <div class="relative w-full h-72 overflow-hidden rounded-t-lg bg-black">
+                    <div class="card-media">
                         <video class="w-full h-full object-cover" poster="images/posters/recon_preview.jpg" preload="none" loop muted playsinline data-src="videos/recon_preview.mp4"></video>
                         <div class="card-tags"><span>SAM 3</span><span>SAM 3D</span><span>Depth Anything 3</span><span>Qwen3-VL</span></div>
                     </div>
@@ -115,7 +96,7 @@
 
                 <!-- 3DGS to mesh -->
                 <a id="project-gs2mesh-link" href="projectset/project_gs2mesh.html" class="card project-card-content">
-                    <div class="relative w-full h-72 overflow-hidden rounded-t-lg bg-black">
+                    <div class="card-media">
                         <img src="images/posters/gs2mesh.jpg" alt="3DGS object replacement" class="w-full h-full object-cover">
                         <div class="card-tags"><span>3DGS</span><span>SAM 3</span><span>SAM 3D Objects</span><span>gsplat</span></div>
                     </div>
@@ -132,13 +113,12 @@
 
         <!-- ================= GAMES ================= -->
         <section id="games" class="container py-12 md:py-16">
-            <h2 class="section-title mb-2" data-lang-key="gamesTitle">Games &amp; Tools</h2>
-            <p class="section-lead" data-lang-key="gamesLead">Levels, engines and renderers built during my MSc at Warwick and before. Hover a card to play.</p>
+            <h2 class="section-title" data-lang-key="gamesTitle">Games &amp; Tools</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
                 <a id="project-extreme-sports-link" href="projectset/project_extreme_sports.html" class="card project-card-content">
-                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                    <div class="card-media">
                         <video class="w-full h-full object-cover" poster="images/posters/extremespoortshort.jpg" preload="none" loop muted playsinline data-src="videos/extremespoortshort.mp4"></video>
                         <div class="card-tags"><span>UE5</span><span>Houdini</span></div>
                     </div>
@@ -152,7 +132,7 @@
                 </a>
 
                 <a id="project-pcg-link" href="projectset/project_pcg.html" class="card project-card-content">
-                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                    <div class="card-media">
                         <video class="w-full h-full object-cover" poster="images/posters/pcg_preview.jpg" preload="none" loop muted playsinline data-src="videos/pcg_preview.mp4"></video>
                         <div class="card-tags"><span>PCG</span><span>Houdini</span><span>UE5</span></div>
                     </div>
@@ -166,7 +146,7 @@
                 </a>
 
                 <a id="project-ray-tracer-link" href="projectset/project_raytracer.html" class="card project-card-content">
-                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                    <div class="card-media">
                         <video class="w-full h-full object-cover" poster="images/posters/rtbase.jpg" preload="none" loop muted playsinline data-src="videos/rtbase.mp4"></video>
                         <div class="card-tags"><span>C++</span><span>PBRT</span></div>
                     </div>
@@ -180,7 +160,7 @@
                 </a>
 
                 <a id="project-2d-shooter-link" href="projectset/project_2d_mecha.html" class="card project-card-content">
-                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                    <div class="card-media">
                         <video class="w-full h-full object-cover" poster="images/posters/2drogueshort.jpg" preload="none" loop muted playsinline data-src="videos/2drogueshort.mp4"></video>
                         <div class="card-tags"><span>C++</span><span>DirectX</span><span>Blender</span></div>
                     </div>
@@ -194,7 +174,7 @@
                 </a>
 
                 <a id="project-rasterizer-link" href="https://github.com/Davecodingking/Rasterizer" target="_blank" rel="noopener noreferrer" class="card project-card-content">
-                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                    <div class="card-media">
                         <video class="w-full h-full object-cover" poster="images/posters/rasterizershort.jpg" preload="none" loop muted playsinline data-src="videos/rasterizershort.mp4"></video>
                         <div class="card-tags"><span>C++</span><span>DirectX 11</span></div>
                     </div>
@@ -208,7 +188,7 @@
                 </a>
 
                 <a id="project-seed-of-eden-link" href="https://youtu.be/riH4wzVhWWE?si=Yx-EPM6aKFZYzFa9" target="_blank" rel="noopener noreferrer" class="card project-card-content">
-                    <div class="relative w-full h-64 overflow-hidden rounded-t-lg bg-black">
+                    <div class="card-media">
                         <video class="w-full h-full object-cover" poster="images/posters/soeshort.jpg" preload="none" loop muted playsinline data-src="videos/soeshort.mp4"></video>
                         <div class="card-tags"><span>Unity3D</span><span>C#</span></div>
                     </div>
@@ -229,7 +209,7 @@
             <div class="timeline">
                 <div class="tl-item">
                     <div class="tl-date" data-lang-key="exp1Date">Jul 2026 - Present</div>
-                    <div class="tl-body">
+                    <div class="tl-body card">
                         <h3 data-lang-key="exp1Title">Backend Pipeline Engineer</h3>
                         <p class="tl-org" data-lang-key="exp1Company">WarpEngine, Algorithm &amp; Technology Dept.</p>
                         <ul>
@@ -240,7 +220,7 @@
                 </div>
                 <div class="tl-item">
                     <div class="tl-date" data-lang-key="exp2Date">Dec 2025 - Jul 2026</div>
-                    <div class="tl-body">
+                    <div class="tl-body card">
                         <h3 data-lang-key="exp2Title">Research Associate</h3>
                         <p class="tl-org" data-lang-key="exp2Company">The Hong Kong Polytechnic University, Department of Computing</p>
                         <ul>
@@ -251,7 +231,7 @@
                 </div>
                 <div class="tl-item">
                     <div class="tl-date" data-lang-key="exp3Date">Jul 2025 - Sept 2025</div>
-                    <div class="tl-body">
+                    <div class="tl-body card">
                         <h3 data-lang-key="exp3Title">Research Assistant Intern</h3>
                         <p class="tl-org" data-lang-key="exp3Company">The Hong Kong University of Science and Technology (Guangzhou)</p>
                         <ul><li data-lang-key="exp3Desc1">Unity-based VR visualization for Procedural Content Generation (PCG) research projects.</li></ul>
@@ -259,7 +239,7 @@
                 </div>
                 <div class="tl-item">
                     <div class="tl-date" data-lang-key="exp4Date">Jul 2022 - Sept 2022</div>
-                    <div class="tl-body">
+                    <div class="tl-body card">
                         <h3 data-lang-key="exp4Title">IT Department Intern</h3>
                         <p class="tl-org" data-lang-key="exp4Company">BMW Brilliance Automotive</p>
                         <ul><li data-lang-key="exp4Desc1">Contributed to the update of the internal JOYCHAT application's shuttle route module and ran end-to-end functional tests for all new routes.</li></ul>

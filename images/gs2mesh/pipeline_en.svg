@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="760" viewBox="0 0 1720 760" font-family="Segoe UI, Inter, Helvetica, Arial, sans-serif">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8894A3"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+
+<text x="860" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#21295C">3dgs2mesh: replace one object in a 3DGS scene with a generated mesh</text>
+<text x="860" y="68" text-anchor="middle" font-size="13" fill="#5A6470">Two models (SAM 3, SAM 3D Objects), both local. Every other step is deterministic geometry. One run per object, ~4 min on an RTX 3090; objects are composed at the end.</text>
+
+<!-- Inputs -->
+<rect x="30" y="110" width="200" height="230" rx="9" fill="#F2F4F6" stroke="#C6CCD4" stroke-width="1.4"/>
+<text x="130" y="136" text-anchor="middle" font-size="15" font-weight="600" fill="#21295C">Inputs</text>
+<text x="46" y="166" font-size="12" font-weight="600" fill="#21295C">Panorama</text>
+<text x="46" y="182" font-size="11" fill="#5A6470">pano.jpg (2048 x 1024)</text>
+<text x="46" y="212" font-size="12" font-weight="600" fill="#21295C">3DGS scene</text>
+<text x="46" y="228" font-size="11" fill="#5A6470">filled_*.ply, ~2^20 Gaussians</text>
+<text x="46" y="258" font-size="12" font-weight="600" fill="#21295C">Object list</text>
+<text x="46" y="274" font-size="11" fill="#5A6470">scenes/&lt;scene&gt;.json</text>
+<text x="46" y="290" font-size="11" fill="#5A6470">prompt / click, parts, rest</text>
+<text x="46" y="306" font-size="11" fill="#5A6470">(floor / table), cover, cam</text>
+<text x="46" y="326" font-size="11" fill="#5A6470">added from the web viewer</text>
+
+<!-- Stage boxes: 6 across -->
+<g font-size="11">
+  <!-- 1 -->
+  <rect x="270" y="110" width="220" height="230" rx="9" fill="#EAF2F8" stroke="#9CC3DC" stroke-width="1.4"/>
+  <circle cx="292" cy="132" r="11" fill="#21295C"/><text x="292" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text>
+  <text x="312" y="136" font-size="14" font-weight="600" fill="#21295C">Generation image</text>
+  <text x="286" y="160" font-size="11.5" fill="#065A82" font-weight="600">view · align · mask</text>
+  <text x="286" y="184" fill="#5A6470">view: crop from the panorama at its</text>
+  <text x="286" y="199" fill="#5A6470">centre, or render the 3DGS from a</text>
+  <text x="286" y="214" fill="#5A6470">better camera when it looks too steep</text>
+  <text x="286" y="236" fill="#5A6470">align: 3DGS rendered from the same</text>
+  <text x="286" y="251" fill="#5A6470">camera, side by side with the photo</text>
+  <text x="286" y="273" fill="#5A6470"><tspan font-weight="700" fill="#21295C">SAM 3</tspan> mask: pick the instance by</text>
+  <text x="286" y="288" fill="#5A6470">prompt or click, merge listed parts</text>
+  <text x="286" y="303" fill="#5A6470">(pillow, blanket) into the mask</text>
+  <text x="286" y="326" fill="#8894A3" font-style="italic">crop.jpg · cam.json · mask_final.png</text>
+
+  <!-- 2 -->
+  <rect x="520" y="110" width="200" height="230" rx="9" fill="#F0EDF8" stroke="#B3A8D6" stroke-width="1.4"/>
+  <circle cx="542" cy="132" r="11" fill="#21295C"/><text x="542" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text>
+  <text x="562" y="136" font-size="14" font-weight="600" fill="#21295C">Generate</text>
+  <text x="536" y="160" font-size="11.5" fill="#065A82" font-weight="600">gen · preview</text>
+  <text x="536" y="184" fill="#5A6470"><tspan font-weight="700" fill="#21295C">SAM 3D Objects</tspan>: image + mask</text>
+  <text x="536" y="199" fill="#5A6470">→ textured mesh, plus the pose it</text>
+  <text x="536" y="214" fill="#5A6470">predicts (position, orientation, size)</text>
+  <text x="536" y="236" fill="#5A6470">preview: the mesh from four sides</text>
+  <text x="536" y="258" fill="#5A6470">2–3 min, ~22 GB VRAM</text>
+  <text x="536" y="326" fill="#8894A3" font-style="italic">gen/&lt;name&gt;.glb · _posed.glb</text>
+
+  <!-- 3 -->
+  <rect x="750" y="110" width="210" height="230" rx="9" fill="#FDF0E8" stroke="#E6B48C" stroke-width="1.4"/>
+  <circle cx="772" cy="132" r="11" fill="#21295C"/><text x="772" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3</text>
+  <text x="792" y="136" font-size="14" font-weight="600" fill="#21295C">Single-view place</text>
+  <text x="766" y="160" font-size="11.5" fill="#065A82" font-weight="600">place</text>
+  <text x="766" y="184" fill="#5A6470">Scene points that project inside the</text>
+  <text x="766" y="199" fill="#5A6470">mask are the old object</text>
+  <text x="766" y="221" fill="#5A6470">Upright the mesh, then search yaw</text>
+  <text x="766" y="236" fill="#5A6470">±30°, scale ±35%, and position</text>
+  <text x="766" y="258" fill="#5A6470">Score: point-to-mesh distance +</text>
+  <text x="766" y="273" fill="#5A6470">mask silhouette overlap</text>
+  <text x="766" y="295" fill="#5A6470">Lowest point snapped to the floor</text>
+  <text x="766" y="310" fill="#5A6470">(or the table it rests on)</text>
+  <text x="766" y="326" fill="#8894A3" font-style="italic">place.json · &lt;name&gt;_world.glb</text>
+
+  <!-- 4 -->
+  <rect x="990" y="110" width="220" height="230" rx="9" fill="#E8F4EC" stroke="#9CCBA8" stroke-width="1.4"/>
+  <circle cx="1012" cy="132" r="11" fill="#21295C"/><text x="1012" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4</text>
+  <text x="1032" y="136" font-size="14" font-weight="600" fill="#21295C">Multi-view carve</text>
+  <text x="1006" y="160" font-size="11.5" fill="#065A82" font-weight="600">views · vmask · vote · carve</text>
+  <text x="1006" y="184" fill="#5A6470">views: render the 3DGS from 6</text>
+  <text x="1006" y="199" fill="#5A6470">cameras around the object</text>
+  <text x="1006" y="221" fill="#5A6470"><tspan font-weight="700" fill="#21295C">SAM 3</tspan> vmask: mask it in every view</text>
+  <text x="1006" y="243" fill="#5A6470">vote: each Gaussian is voted</text>
+  <text x="1006" y="258" fill="#5A6470">object / unseen / other</text>
+  <text x="1006" y="280" fill="#5A6470">carve: extrude the object footprint</text>
+  <text x="1006" y="295" fill="#5A6470">vertically, remove it as one block,</text>
+  <text x="1006" y="310" fill="#5A6470">drop floating fragments; manual fixes win</text>
+  <text x="1006" y="326" fill="#8894A3" font-style="italic">labels.npy · scene_carved.ply · removed.ply</text>
+
+  <!-- 5 -->
+  <rect x="1240" y="110" width="200" height="230" rx="9" fill="#FDF0E8" stroke="#E6B48C" stroke-width="1.4"/>
+  <circle cx="1262" cy="132" r="11" fill="#21295C"/><text x="1262" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5</text>
+  <text x="1282" y="136" font-size="14" font-weight="600" fill="#21295C">Multi-view refine</text>
+  <text x="1256" y="160" font-size="11.5" fill="#065A82" font-weight="600">fit</text>
+  <text x="1256" y="184" fill="#5A6470">Rasterize the mesh (nvdiffrast)</text>
+  <text x="1256" y="199" fill="#5A6470">and match every view's mask</text>
+  <text x="1256" y="214" fill="#5A6470">silhouette (IoU) + point distance</text>
+  <text x="1256" y="236" fill="#5A6470">Search: yaw ±15°, uniform scale,</text>
+  <text x="1256" y="251" fill="#5A6470">per-axis stretch ±10%, position</text>
+  <text x="1256" y="273" fill="#5A6470">cover (optional): never smaller</text>
+  <text x="1256" y="288" fill="#5A6470">than the old object on any axis</text>
+  <text x="1256" y="326" fill="#8894A3" font-style="italic">fit_mv.json · &lt;name&gt;_world.glb</text>
+
+  <!-- 6 -->
+  <rect x="1470" y="110" width="220" height="230" rx="9" fill="#F2F4F6" stroke="#C6CCD4" stroke-width="1.4"/>
+  <circle cx="1492" cy="132" r="11" fill="#21295C"/><text x="1492" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">6</text>
+  <text x="1512" y="136" font-size="14" font-weight="600" fill="#21295C">Check &amp; compose</text>
+  <text x="1486" y="160" font-size="11.5" fill="#065A82" font-weight="600">overlay · check · compare · debug</text>
+  <text x="1486" y="184" fill="#5A6470">overlay: mask vs mesh outline per view</text>
+  <text x="1486" y="199" fill="#5A6470">check: before / after carve / with</text>
+  <text x="1486" y="214" fill="#5A6470">mesh, from three cameras</text>
+  <text x="1486" y="229" fill="#5A6470">compare: residual ratio per view</text>
+  <text x="1486" y="244" fill="#5A6470">debug: data for the 3D check page</text>
+  <text x="1486" y="270" fill="#5A6470"><tspan font-weight="700" fill="#21295C">compose</tspan>: carve all finished</text>
+  <text x="1486" y="285" fill="#5A6470">objects of the scene together,</text>
+  <text x="1486" y="300" fill="#5A6470">copy meshes, write the viewer files</text>
+  <text x="1486" y="326" fill="#8894A3" font-style="italic">scene.ply · scene.splat · objects.json</text>
+</g>
+
+<!-- arrows between stages -->
+<g stroke="#8894A3" stroke-width="1.6" fill="none" marker-end="url(#arr)">
+  <path d="M230 225 L268 225"/>
+  <path d="M490 225 L518 225"/>
+  <path d="M720 225 L748 225"/>
+  <path d="M960 225 L988 225"/>
+  <path d="M1210 225 L1238 225"/>
+  <path d="M1440 225 L1468 225"/>
+</g>
+
+<!-- Outputs -->
+<rect x="30" y="400" width="1660" height="92" rx="9" fill="#F7F9FA" stroke="#C6CCD4" stroke-width="1.2"/>
+<text x="46" y="426" font-size="14" font-weight="600" fill="#21295C">Outputs</text>
+<text x="46" y="450" font-size="12" fill="#5A6470"><tspan font-weight="600" fill="#21295C">scene.ply</tspan>  the 3DGS with every replaced object carved out</text>
+<text x="46" y="470" font-size="12" fill="#5A6470"><tspan font-weight="600" fill="#21295C">&lt;run&gt;.glb</tspan>  one textured mesh per object, in 3DGS coordinates, ready to drop in next to the splats</text>
+<text x="900" y="450" font-size="12" fill="#5A6470"><tspan font-weight="600" fill="#21295C">viewer/</tspan>  add objects, watch status.json, inspect in 3D, hand-fix point removal, re-compose</text>
+<text x="900" y="470" font-size="12" fill="#5A6470"><tspan font-weight="600" fill="#21295C">status.json</tspan>  queued / running / done / failed, current step, GPU, pid, last error</text>
+
+<!-- Runtime notes -->
+<rect x="30" y="520" width="1660" height="200" rx="9" fill="#FFFFFF" stroke="#C6CCD4" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="46" y="546" font-size="14" font-weight="600" fill="#21295C">How it runs</text>
+<text x="46" y="572" font-size="12" fill="#5A6470">pipeline.py is the only entry point and uses the standard library only. It reads the object list, claims a GPU with a file lock sized to the heaviest step, and starts each step as a separate process in its conda env (sam3d: SAM 3D Objects, gsplat, nvdiffrast; sam3: SAM 3).</text>
+<text x="46" y="594" font-size="12" fill="#5A6470">Any step can be rerun from any point (run --from place). Changing a field such as rest or seed reruns only what depends on it. A finished object automatically re-composes its scene.</text>
+<text x="46" y="616" font-size="12" fill="#5A6470">Coordinates: the mesh is placed in the 3DGS frame; the panorama centre is the origin. Cameras are written as {C, Rb, f, size}; yaw / pitch / fov on the command line are turned from the panorama centre.</text>
+<text x="46" y="650" font-size="12" font-weight="600" fill="#21295C">Timing (A01 armchair and coffee table, one RTX 3090)</text>
+<text x="46" y="672" font-size="12" fill="#5A6470">view &lt;3 s · align 3 s · mask 20 s · gen 2–3 min · preview 2 s · place 5 s · views 4 s · vmask 20–30 s · vote 1 s · carve 1 s · fit 6 s · overlay 2 s · check 6 s · compare 4 s · debug 5 s</text>
+<text x="46" y="700" font-size="12" fill="#5A6470">Not supported yet: wall-mounted objects (rest is floor or table only).</text>
+</svg>
