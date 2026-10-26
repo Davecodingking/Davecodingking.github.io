@@ -419,7 +419,6 @@ img-comparison-slider img {
 .nr-diagram img { width: 100%; height: auto; display: block; }
 
 /* small-screen navbar: keep everything inside the viewport */
-html, body { overflow-x: hidden; }
 @media (max-width: 480px) {
     .main-header .nav-title-group .name { font-size: 1.75rem; }
     .main-header nav > div { column-gap: 0.5rem; }
@@ -480,7 +479,6 @@ body {
     border: 1px solid rgba(217,160,91,0.30);
     border-radius: 1rem;
     box-shadow: 0 10px 40px rgba(0,0,0,0.45);
-    backdrop-filter: blur(4px);
     padding-left: 2rem !important;
     padding-right: 2rem !important;
     margin-top: 1.5rem;
