@@ -458,14 +458,16 @@ body { font-size: 1.05rem; }
 body {
     background-color: #1a1613;
     background-image: url("images/bg/page.jpg");
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-attachment: fixed;
 }
+@media (max-width: 768px) { body { background-attachment: scroll; background-size: auto 100vh; } }
 .content-wrapper { background: transparent; }
 .hero {
     background:
-        linear-gradient(to right, rgba(26,22,19,0.62), rgba(26,22,19,0.35)),
+        linear-gradient(to right, rgba(26,22,19,0.86) 0%, rgba(26,22,19,0.72) 50%, rgba(26,22,19,0.35) 100%),
         url("images/bg/hero.jpg") center / 100% 100% no-repeat;
     border: 1px solid rgba(217,160,91,0.45);
     border-radius: 0 0 1rem 1rem;
