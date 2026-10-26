@@ -23,8 +23,8 @@
     --color-btn-nav-bg-opacity-high: rgba(60, 61, 55, 0.8);
     /* Less transparent dark green-gray on hover */
     /* Font Family */
-    --font-family-main: 'Source Sans 3', 'Inter', sans-serif;
-    --font-family-display: 'Fraunces', Georgia, serif;
+    --font-family-main: 'Nunito Sans', 'Inter', sans-serif;
+    --font-family-display: 'Cormorant Garamond', Georgia, serif;
     /* Primary font for the entire site */
 
     --width-max-content: 1280px;
@@ -442,29 +442,52 @@ html, body { overflow-x: hidden; }
    ========================================= */
 h1, h2, h3, .section-title, .section-subtitle, .section-subsubtitle, .main-header .name, .stat-num, .tl-body h3 {
     font-family: var(--font-family-display);
-    letter-spacing: -0.005em;
+    letter-spacing: 0;
+    font-weight: 700;
 }
+.section-title { font-size: 2.9rem; }
+.section-subtitle { font-size: 2.2rem; }
+.section-subsubtitle { font-size: 1.7rem; }
 body { font-size: 1.05rem; }
 .hero-eyebrow, .card-meta, .tl-date { font-family: var(--font-family-main); }
 
 /* =========================================
-   Background: plain dark + faint grid; hero = B&W snow ridge, full resolution
+   Background: B&W snow ridge (Meili below), full width, no filter.
+   Content sits on dark panels so text and cards have a clear boundary.
    ========================================= */
 body {
     background-color: #1a1613;
-    background-image:
-        linear-gradient(rgba(217,160,91,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(217,160,91,0.035) 1px, transparent 1px);
-    background-size: 36px 36px;
+    background-image: url("images/bg/page.jpg");
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    background-position: top center;
 }
 .content-wrapper { background: transparent; }
 .hero {
     background:
-        linear-gradient(to right, rgba(26,22,19,0.92) 0%, rgba(26,22,19,0.70) 45%, rgba(26,22,19,0.25) 100%),
-        url("images/bg/hero.jpg") center 35% / cover no-repeat;
-    border-bottom: 1px solid rgba(217,160,91,0.35);
+        linear-gradient(to right, rgba(26,22,19,0.62), rgba(26,22,19,0.35)),
+        url("images/bg/hero.jpg") center / 100% 100% no-repeat;
+    border: 1px solid rgba(217,160,91,0.45);
+    border-radius: 0 0 1rem 1rem;
 }
-.hero-eyebrow, .hero h2, .hero p { text-shadow: 0 1px 10px rgba(0,0,0,0.6); }
+.hero-eyebrow, .hero h2, .hero p { text-shadow: 0 1px 10px rgba(0,0,0,0.7); }
+
+/* content panels */
+.panel {
+    background: rgba(26,22,19,0.90);
+    border: 1px solid rgba(217,160,91,0.30);
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+    backdrop-filter: blur(4px);
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+#mainHeader { background-color: rgba(26,22,19,0.94) !important; border-bottom: 1px solid rgba(217,160,91,0.25); }
+.project-card-content { border: 1px solid rgba(217,160,91,0.35); }
+.card { border: 1px solid rgba(217,160,91,0.18); }
+@media (max-width: 768px) { .panel { padding-left: 1rem !important; padding-right: 1rem !important; border-radius: 0.75rem; } }
 
 /* photography page */
 .photo-grid { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 180px; gap: 0.75rem; }
@@ -485,5 +508,5 @@ body {
 #mainHeader { background-color: rgba(26,22,19,0.92) !important; }
 
 /* photography page hero */
-.ph-hero { border-radius: 0.9rem; overflow: hidden; border: 1px solid rgba(217,160,91,0.35); margin-bottom: 2rem; }
+.ph-hero-unused { border-radius: 0.9rem; overflow: hidden; border: 1px solid rgba(217,160,91,0.35); margin-bottom: 2rem; }
 .ph-hero img { width: 100%; height: auto; display: block; max-height: 560px; object-fit: cover; }
