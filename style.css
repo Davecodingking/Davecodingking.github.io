@@ -466,7 +466,7 @@ body::before, body::after {
     filter: brightness(0.78);
 }
 body::before {
-    z-index: -2;
+    z-index: -3;
     background-image: url("images/bg/snow.jpg");
     background-position: top left;
     -webkit-mask-image: linear-gradient(to right, #000 1250px, transparent 1702px), linear-gradient(to bottom, #000 900px, transparent 1276px);
@@ -475,7 +475,7 @@ body::before {
     mask-composite: intersect;
 }
 body::after {
-    z-index: -1;
+    z-index: -2;
     background-image: url("images/bg/meili.jpg");
     background-position: top right;
     -webkit-mask-image: linear-gradient(to right, transparent calc(100% - 1276px), #000 calc(100% - 826px)), linear-gradient(to bottom, #000 640px, transparent 958px);
@@ -530,3 +530,13 @@ body::after {
 /* photography page hero */
 .ph-hero-unused { border-radius: 0.9rem; overflow: hidden; border: 1px solid rgba(217,160,91,0.35); margin-bottom: 2rem; }
 .ph-hero img { width: 100%; height: auto; display: block; max-height: 560px; object-fit: cover; }
+
+/* caption on the sky, top-left of the viewport */
+.bg-caption {
+    position: fixed; z-index: -1; left: 28px; top: 104px;
+    font-family: var(--font-family-display); font-style: italic; font-size: 1.05rem; letter-spacing: 0.03em;
+    color: rgba(240,232,220,0.82); text-shadow: 0 1px 6px rgba(0,0,0,0.55);
+    pointer-events: none;
+}
+.bg-caption i { font-size: 0.8rem; margin-right: 0.35rem; opacity: 0.8; }
+@media (max-width: 1100px) { .bg-caption { display: none; } }
