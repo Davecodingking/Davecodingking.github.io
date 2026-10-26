@@ -23,7 +23,8 @@
     --color-btn-nav-bg-opacity-high: rgba(60, 61, 55, 0.8);
     /* Less transparent dark green-gray on hover */
     /* Font Family */
-    --font-family-main: 'Inter', sans-serif;
+    --font-family-main: 'Source Sans 3', 'Inter', sans-serif;
+    --font-family-display: 'Fraunces', Georgia, serif;
     /* Primary font for the entire site */
 
     --width-max-content: 1280px;
@@ -434,3 +435,31 @@ html, body { overflow-x: hidden; }
 .hero-skills span i { font-size: 1.05rem; color: var(--color-text-primary); opacity: 0.9; }
 .hero-skills span:hover img { filter: brightness(0) saturate(100%) invert(72%) sepia(35%) saturate(500%) hue-rotate(345deg) brightness(95%); }
 .hero-skills span:hover i { color: var(--color-accent); }
+
+
+/* =========================================
+   Typography: Fraunces display + Source Sans body
+   ========================================= */
+h1, h2, h3, .section-title, .section-subtitle, .section-subsubtitle, .main-header .name, .stat-num, .tl-body h3 {
+    font-family: var(--font-family-display);
+    letter-spacing: -0.005em;
+}
+body { font-size: 1.05rem; }
+.hero-eyebrow, .card-meta, .tl-date { font-family: var(--font-family-main); }
+
+/* =========================================
+   Background: page grid + hero image
+   ========================================= */
+body {
+    background-color: #1a1613;
+    background-image:
+        linear-gradient(rgba(217,160,91,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217,160,91,0.045) 1px, transparent 1px);
+    background-size: 36px 36px;
+}
+.content-wrapper { background: transparent; }
+.hero {
+    background:
+        linear-gradient(to right, rgba(26,22,19,0.90), rgba(26,22,19,0.72)),
+        url("images/bg/hero.jpg") center / cover no-repeat;
+}
