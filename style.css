@@ -552,3 +552,6 @@ body::after {
 
 /* Cormorant defaults to old-style figures; use lining numerals so numbers match text height */
 h1, h2, h3, .section-title, .section-subtitle, .section-subsubtitle, .stat-num, .tl-body h3, .bg-caption { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+
+/* hero backdrop: lay the image out over the border box so no 1px border column shows through */
+.hero { background-origin: border-box; background-clip: border-box; }
