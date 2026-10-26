@@ -448,18 +448,37 @@ body { font-size: 1.05rem; }
 .hero-eyebrow, .card-meta, .tl-date { font-family: var(--font-family-main); }
 
 /* =========================================
-   Background: page grid + hero image
+   Background: photo collage + grid, hero image
    ========================================= */
 body {
     background-color: #1a1613;
     background-image:
-        linear-gradient(rgba(217,160,91,0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(217,160,91,0.045) 1px, transparent 1px);
-    background-size: 36px 36px;
+        linear-gradient(rgba(217,160,91,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217,160,91,0.035) 1px, transparent 1px),
+        linear-gradient(rgba(26,22,19,0.84), rgba(26,22,19,0.84)),
+        url("images/bg/collage.jpg");
+    background-size: 36px 36px, 36px 36px, auto, cover;
+    background-position: 0 0, 0 0, 0 0, center;
+    background-attachment: scroll, scroll, fixed, fixed;
 }
 .content-wrapper { background: transparent; }
 .hero {
     background:
-        linear-gradient(to right, rgba(26,22,19,0.90), rgba(26,22,19,0.72)),
+        linear-gradient(to right, rgba(26,22,19,0.78), rgba(26,22,19,0.55)),
         url("images/bg/hero.jpg") center / cover no-repeat;
 }
+@media (max-width: 768px) { body { background-attachment: scroll; } }
+
+/* photography page */
+.photo-grid { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 180px; gap: 0.75rem; }
+.photo-grid a { position: relative; display: block; overflow: hidden; border-radius: 0.6rem; border: 1px solid var(--color-bg-light); background: #000; }
+.photo-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.photo-grid a:hover img { transform: scale(1.03); }
+.photo-grid a:hover { box-shadow: 0 0 0 1px var(--color-accent); }
+.photo-grid figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 0.5rem 0.75rem; font-size: 0.85rem; color: var(--color-text-bright); background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); opacity: 0; transition: opacity 0.25s; }
+.photo-grid a:hover figcaption { opacity: 1; }
+.ph-w3h2 { grid-column: span 3; grid-row: span 2; }
+.ph-w2h2 { grid-column: span 2; grid-row: span 2; }
+.ph-w2h1 { grid-column: span 2; grid-row: span 1; }
+.ph-w3h1 { grid-column: span 3; grid-row: span 1; }
+@media (max-width: 768px) { .photo-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; } .photo-grid a { grid-column: span 2 !important; grid-row: span 1 !important; } .ph-w2h2, .ph-w3h2 { grid-row: span 2 !important; } }
