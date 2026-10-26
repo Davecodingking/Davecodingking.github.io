@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="nrPageTitle">Lightweight Dynamic Neural Rendering | David He</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+
+    <style>
+        .nr-video { width: 100%; height: auto; display: block; background: #000; }
+        .nr-label {
+            position: absolute; top: 0.75rem; padding: 0.2rem 0.6rem; font-size: 0.75rem; font-weight: 700;
+            border-radius: 0.25rem; background: rgba(0,0,0,0.65); color: #fff; border: 1px solid rgba(255,255,255,0.2); z-index: 10;
+        }
+        .nr-metric { font-variant-numeric: tabular-nums; }
+        .nr-diagram { background: #ffffff; border-radius: 0.75rem; padding: 0.75rem; }
+        .nr-diagram img { width: 100%; height: auto; display: block; }
+    </style>
+</head>
+
+<body class="antialiased leading-normal">
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-wrapper">
+        <div class="container py-20 md:py-24">
+
+            <!-- Back Button -->
+            <div class="mb-8 flex justify-between items-center">
+                <a href="../index.html#projects" class="text-[var(--color-text-secondary)] hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> <span data-lang-key="backToProjects">Back to Projects</span>
+                </a>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-2" data-lang-key="nrTitle">Lightweight Dynamic Neural Rendering</h1>
+            <p class="text-lg text-[var(--color-text-secondary)] mb-6" data-lang-key="nrSubtitle">Research Associate, The Hong Kong Polytechnic University, in collaboration with Huawei (Dec 2025 - Jul 2026)</p>
+
+            <!-- Tag row -->
+            <div class="flex flex-wrap gap-2 mb-10">
+                <span class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-sm border border-[var(--color-bg-light)] px-3 py-1 rounded-full">PyTorch</span>
+                <span class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-sm border border-[var(--color-bg-light)] px-3 py-1 rounded-full">Neural Texture</span>
+                <span class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-sm border border-[var(--color-bg-light)] px-3 py-1 rounded-full">Triplane</span>
+                <span class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-sm border border-[var(--color-bg-light)] px-3 py-1 rounded-full">Spherical Harmonics</span>
+                <span class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-sm border border-[var(--color-bg-light)] px-3 py-1 rounded-full">Blender</span>
+                <span class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-sm border border-[var(--color-bg-light)] px-3 py-1 rounded-full">WebGL</span>
+            </div>
+
+            <!-- Overview -->
+            <section class="mb-12">
+                <h2 class="section-subtitle mb-4" data-lang-key="overviewTitle">Project Overview</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-4" data-lang-key="nrOverview1">
+                        A lightweight neural rendering pipeline for scenes with dynamic global illumination, built on rasterization plus neural shading and targeted at mobile GPUs. Base materials are encoded in a neural texture, dynamic lighting is stored in a triplane of spherical-harmonic light probes, and a small dual-branch MLP decodes both into the final colour.
+                    </p>
+                    <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed" data-lang-key="nrOverview2">
+                        The result runs at a stable 25 dB PSNR and 90+ FPS on a Huawei Mate 70 Pro for complex dynamic-GI scenes, with 10x less probe storage than voxel probes. A paper is in preparation for TVCG.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                        <div class="bg-[var(--color-bg-dark)] rounded-lg p-4 text-center border border-[var(--color-bg-light)]">
+                            <div class="text-3xl font-bold text-[var(--color-text-primary)] nr-metric">90+</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]" data-lang-key="nrStatFps">FPS on Mate 70 Pro</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-dark)] rounded-lg p-4 text-center border border-[var(--color-bg-light)]">
+                            <div class="text-3xl font-bold text-[var(--color-text-primary)] nr-metric">25 dB</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]" data-lang-key="nrStatPsnr">PSNR on-device, dynamic GI</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-dark)] rounded-lg p-4 text-center border border-[var(--color-bg-light)]">
+                            <div class="text-3xl font-bold text-[var(--color-text-primary)] nr-metric">10x</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]" data-lang-key="nrStatMem">Less probe storage vs. voxels</div>
+                        </div>
+                        <div class="bg-[var(--color-bg-dark)] rounded-lg p-4 text-center border border-[var(--color-bg-light)]">
+                            <div class="text-3xl font-bold text-[var(--color-text-primary)] nr-metric">0</div>
+                            <div class="text-sm text-[var(--color-text-secondary)]" data-lang-key="nrStatConv">Convolutions at runtime</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="nrArchTitle">Architecture</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] mb-6" data-lang-key="nrArchDesc">
+                        Rasterized G-buffer inputs (UV, normal, depth, albedo, view direction) sample a Laplacian-pyramid neural texture and a triplane light probe. The concatenated features go through a shared trunk MLP, then split into a view-independent diffuse head and a view-dependent specular head. Final colour is albedo x sigmoid(diffuse) + softplus(specular).
+                    </p>
+                    <div class="nr-diagram">
+                        <img src="../images/nr_pipeline.svg" alt="Pipeline: neural texture + triplane SH light probe -> trunk MLP -> diffuse / specular heads">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Method -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="nrMethodTitle">Key Contributions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="card flex items-start gap-4">
+                        <div class="bg-[var(--color-bg-light)] p-3 rounded-lg shrink-0">
+                            <i class="fa-solid fa-layer-group text-2xl text-[#e4d8c6]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-[var(--color-text-primary)] mb-1" data-lang-key="nrM1Title">Material / Lighting Decoupling with Two-Stage Training</h3>
+                            <p class="text-[var(--color-text-secondary)]" data-lang-key="nrM1Desc">
+                                Base materials are encoded in a neural texture. Stage one learns materials together with static and dynamic GI; stage two jointly optimizes the texture and light probes on an interpolation grid over moving-object positions, so position-dependent shadows are fitted directly and training converges faster.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card flex items-start gap-4">
+                        <div class="bg-[var(--color-bg-light)] p-3 rounded-lg shrink-0">
+                            <i class="fa-solid fa-cube text-2xl text-[#e4d8c6]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-[var(--color-text-primary)] mb-1" data-lang-key="nrM2Title">Triplane SH Light Probes with Condition Encoding</h3>
+                            <p class="text-[var(--color-text-secondary)]" data-lang-key="nrM2Desc">
+                                Spherical-harmonic lighting coefficients live in three learnable planes instead of a voxel grid, cutting storage by 10x. Scene conditions (object poses, light switch states) are encoded and fed to a per-plane Conv2D that predicts a lighting residual. Residuals are pre-baked at grid nodes across the condition space and interpolated at runtime, so no convolution runs on the device.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card flex items-start gap-4">
+                        <div class="bg-[var(--color-bg-light)] p-3 rounded-lg shrink-0">
+                            <i class="fa-solid fa-code-branch text-2xl text-[#e4d8c6]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-[var(--color-text-primary)] mb-1" data-lang-key="nrM3Title">Dual-MLP Trunk-Head Network</h3>
+                            <p class="text-[var(--color-text-secondary)]" data-lang-key="nrM3Desc">
+                                A shared trunk feeds separate diffuse and specular heads, decoupling low-frequency diffuse shading from high-frequency view-dependent specular. G-buffer data and the physical shading model give extra supervision while shrinking the network, which is what makes 90+ FPS on a phone possible.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card flex items-start gap-4">
+                        <div class="bg-[var(--color-bg-light)] p-3 rounded-lg shrink-0">
+                            <i class="fa-solid fa-database text-2xl text-[#e4d8c6]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-[var(--color-text-primary)] mb-1" data-lang-key="nrM4Title">Scene Construction and Automated Data Pipeline</h3>
+                            <p class="text-[var(--color-text-secondary)]" data-lang-key="nrM4Desc">
+                                Built high-fidelity scenes with complex materials and dynamic lighting in Blender and Unreal Engine. An automated pipeline samples multi-view cameras and smooth trajectories around scene targets, renders ground truth with exact poses, and extracts G-buffers (BaseColor, normals, depth) aligned to the physical lighting.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results: GT vs Render -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="nrResultsTitle">Results: Ground Truth vs. Neural Render</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] mb-6" data-lang-key="nrResultsDesc">
+                        Held-out test views on three animated scenes. Left half of each clip is the path-traced ground truth, right half is the neural render. Averages are over 240 test images per scene.
+                    </p>
+
+                    <div class="flex flex-col gap-8">
+                        <!-- Hong Kong street -->
+                        <div>
+                            <div class="flex flex-wrap justify-between items-baseline mb-2 gap-2">
+                                <h3 class="text-lg font-semibold text-[var(--color-text-primary)]" data-lang-key="nrSceneHk">Hong Kong Street - moving spotlight drone, wet ground</h3>
+                                <span class="text-sm text-[var(--color-text-secondary)] nr-metric">PSNR 28.61 dB &nbsp;|&nbsp; SSIM 0.974</span>
+                            </div>
+                            <div class="relative rounded-lg overflow-hidden border border-[var(--color-bg-light)]">
+                                <span class="nr-label left-3">GT</span>
+                                <span class="nr-label right-3" data-lang-key="nrLabelRender">Render</span>
+                                <video class="nr-video" src="../videos/nr_hkstreet.mp4" autoplay loop muted playsinline controls></video>
+                            </div>
+                        </div>
+
+                        <!-- Audi R8 -->
+                        <div>
+                            <div class="flex flex-wrap justify-between items-baseline mb-2 gap-2">
+                                <h3 class="text-lg font-semibold text-[var(--color-text-primary)]" data-lang-key="nrSceneAudi">Audi R8 - opening doors, sun shadows</h3>
+                                <span class="text-sm text-[var(--color-text-secondary)] nr-metric">PSNR 29.93 dB &nbsp;|&nbsp; SSIM 0.980</span>
+                            </div>
+                            <div class="relative rounded-lg overflow-hidden border border-[var(--color-bg-light)]">
+                                <span class="nr-label left-3">GT</span>
+                                <span class="nr-label right-3" data-lang-key="nrLabelRender">Render</span>
+                                <video class="nr-video" src="../videos/nr_audi.mp4" autoplay loop muted playsinline controls></video>
+                            </div>
+                        </div>
+
+                        <!-- Lego -->
+                        <div>
+                            <div class="flex flex-wrap justify-between items-baseline mb-2 gap-2">
+                                <h3 class="text-lg font-semibold text-[var(--color-text-primary)]" data-lang-key="nrSceneLego">Lego Bulldozer - articulated arm, self-shadowing</h3>
+                                <span class="text-sm text-[var(--color-text-secondary)] nr-metric">PSNR 26.82 dB &nbsp;|&nbsp; SSIM 0.985</span>
+                            </div>
+                            <div class="relative rounded-lg overflow-hidden border border-[var(--color-bg-light)] max-w-[900px] mx-auto">
+                                <span class="nr-label left-3">GT</span>
+                                <span class="nr-label right-3" data-lang-key="nrLabelRender">Render</span>
+                                <video class="nr-video" src="../videos/nr_lego.mp4" autoplay loop muted playsinline controls></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lighting conditions -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="nrLightTitle">Condition Encoding: Switching Lights at Runtime</h2>
+                <div class="card">
+                    <p class="text-lg text-[var(--color-text-secondary)] mb-6" data-lang-key="nrLightDesc">
+                        The living room has two light sources, A and B, whose on/off states are encoded as scene conditions. One trained model renders all three combinations below along the same camera path; the triplane residual shifts the entire indirect lighting without retraining or extra probes.
+                    </p>
+                    <div class="relative rounded-lg overflow-hidden border border-[var(--color-bg-light)]">
+                        <div class="absolute top-0 left-0 right-0 grid grid-cols-3 z-10 pointer-events-none">
+                            <span class="nr-label relative top-3 left-3 w-fit" data-lang-key="nrLightA">Light A only</span>
+                            <span class="nr-label relative top-3 left-3 w-fit" data-lang-key="nrLightAB">Light A + B</span>
+                            <span class="nr-label relative top-3 left-3 w-fit" data-lang-key="nrLightB">Light B only</span>
+                        </div>
+                        <video class="nr-video" src="../videos/nr_livingroom_lights.mp4" autoplay loop muted playsinline controls></video>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech -->
+            <section class="mb-12">
+                <h2 class="section-subsubtitle" data-lang-key="techTitle">Technologies</h2>
+                <div class="card">
+                    <ul class="list-disc pl-5 text-[var(--color-text-secondary)] space-y-2">
+                        <li><b data-lang-key="nrTech1Label">Training:</b> <span data-lang-key="nrTech1">Python, PyTorch, Laplacian-pyramid neural texture, TensoRF-style triplane decode, dual SH evaluation (normal / reflect)</span></li>
+                        <li><b data-lang-key="nrTech2Label">Data:</b> <span data-lang-key="nrTech2">Blender and Unreal Engine scenes, scripted camera sampling, G-buffer export (UV, normal, depth, world position, albedo)</span></li>
+                        <li><b data-lang-key="nrTech3Label">Deployment:</b> <span data-lang-key="nrTech3">Pre-baked residual grid with runtime interpolation, WebGL viewer, on-device evaluation on Huawei Mate 70 Pro</span></li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="pb-16">
+        <div class="container mx-auto text-center">
+            <p class="text-sm text-[var(--color-text-secondary)]" data-lang-key="footerText">
+                &copy; 2025 David He.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

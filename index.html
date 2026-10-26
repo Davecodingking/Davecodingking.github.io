@@ -50,6 +50,9 @@
                         <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">C#</div>
                         <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">DirectX 11</div>
                         <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Python</div>
+                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">PyTorch</div>
+                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Blender</div>
+                        <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Houdini</div>
                         <div class="bg-[var(--color-bg-card)] text-[var(--color-text-bright)] text-lg border border-[--color-text-secondary] px-6 py-3 rounded-xl">Git</div>
                     </div>
                 </div>
@@ -62,6 +65,26 @@
             <h2 class="section-title" data-lang-key="myWork">My Work</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                 
+                <!-- Neural Rendering (2025-2026) -->
+                <a id="project-neural-rendering-link" href="projectset/project_neural_rendering.html" class="card project-card-content">
+                    <div class="relative w-full h-96 overflow-hidden rounded-t-lg bg-black">
+                        <video src="videos/nr_preview.mp4" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+                        <div class="absolute bottom-0 left-0 right-0 p-2 bg-[linear-gradient(to_top,var(--color-bg-card),transparent)]">
+                            <div class=" flex flex-wrap gap-2 justify-start">
+                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">PyTorch</span>
+                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">Neural Rendering</span>
+                                <span class="bg-[var(--color-bg-dark)] text-[var(--color-text-bright)] text-sm font-medium px-2.5 py-0.5 rounded-full">Blender</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj0Title">Lightweight Dynamic Neural Rendering (2025-2026)</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] mb-4 flex-grow" data-lang-key="proj0Desc">
+                           Research with PolyU and Huawei: neural textures plus triplane spherical-harmonic light probes and a dual-MLP shader render dynamic-GI scenes at 25 dB PSNR and 90+ FPS on a Huawei Mate 70 Pro.
+                        </div>
+                    </div>
+                </a>
+
                 <!-- 【更新】：Extreme Sports 链接指向新的详情页 -->
                 <a id="project-extreme-sports-link" href="projectset/project_extreme_sports.html" class="card project-card-content">
                     <div class="relative w-full h-96 overflow-hidden rounded-t-lg bg-black">
@@ -189,7 +212,7 @@
                     </p>
                     <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="edu1Date">Sept 2024 - Sept 2025</p>
                     <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
-                        <li data-lang-key="edu1Desc1">C++, Computer Graphics, Game Development</li>
+                        <li data-lang-key="edu1Desc1">Advanced Computer Graphics, Machine Learning, Game Design</li>
                     </ul>
                 </div>
                 <div class="card w-full max-w-lg mx-auto">
@@ -201,7 +224,7 @@
                     </p>
                     <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="edu2Date">Sept 2020 - Jul 2024</p>
                     <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
-                        <li data-lang-key="edu2Desc1">Operation System, Data Structure and Algorithm</li>
+                        <li data-lang-key="edu2Desc1">Data Structures and Algorithms, Operating Systems, Deep Learning, Computational Theory</li>
                     </ul>
                 </div>
             </div>
@@ -210,17 +233,39 @@
         <!-- Experience Section -->
         <section id="experience" class="container py-12 md:py-16">
             <h2 class="section-title" data-lang-key="experience">Professional Experience</h2>
-            <div class="flex justify-center">
-                 <div class="card w-full max-w-lg">
-                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="exp1Title">
-                        IT Department Intern
-                    </h3>
-                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="exp1Company">
-                        BMW Brilliance Automotive
-                    </p>
-                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="exp1Date">Jul 2022 - Oct 2022</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                <div class="card w-full">
+                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="exp1Title">Backend Pipeline Engineer</h3>
+                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="exp1Company">WarpEngine, Algorithm &amp; Technology Dept.</p>
+                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="exp1Date">Jul 2026 - Present</p>
                     <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
-                        <li data-lang-key="exp1Desc1">Contributed to the 6th update of the internal JOYCHAT application's bus route module (launched Aug 1st).</li>
+                        <li data-lang-key="exp1Desc1">Built an end-to-end pipeline that reconstructs editable, metric-scale 3D scenes from monocular video for world-model training.</li>
+                        <li data-lang-key="exp1Desc2">Maintain an automated scene-scanning and batch-export toolchain, and the dispatch service of a multi-node, multi-GPU rendering cluster.</li>
+                    </ul>
+                </div>
+                <div class="card w-full">
+                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="exp2Title">Research Associate</h3>
+                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="exp2Company">The Hong Kong Polytechnic University, Department of Computing</p>
+                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="exp2Date">Dec 2025 - Jul 2026</p>
+                    <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
+                        <li data-lang-key="exp2Desc1">Huawei lightweight dynamic neural rendering project: neural textures, triplane SH light probes and a dual-MLP shader (see project page).</li>
+                        <li data-lang-key="exp2Desc2">Built Blender / Unreal scenes and the automated G-buffer data pipeline. Paper in preparation for TVCG.</li>
+                    </ul>
+                </div>
+                <div class="card w-full">
+                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="exp3Title">Research Assistant Intern</h3>
+                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="exp3Company">The Hong Kong University of Science and Technology (Guangzhou)</p>
+                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="exp3Date">Jul 2025 - Sept 2025</p>
+                    <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
+                        <li data-lang-key="exp3Desc1">Unity-based VR visualization for Procedural Content Generation (PCG) research projects.</li>
+                    </ul>
+                </div>
+                <div class="card w-full">
+                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="exp4Title">IT Department Intern</h3>
+                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="exp4Company">BMW Brilliance Automotive</p>
+                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="exp4Date">Jul 2022 - Sept 2022</p>
+                    <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
+                        <li data-lang-key="exp4Desc1">Contributed to the update of the internal JOYCHAT application's shuttle route module and ran end-to-end functional tests for all new routes.</li>
                     </ul>
                 </div>
             </div>
