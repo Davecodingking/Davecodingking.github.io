@@ -454,15 +454,35 @@ body { font-size: 1.05rem; }
    Background: B&W snow ridge (Meili below), full width, no filter.
    Content sits on dark panels so text and cards have a clear boundary.
    ========================================= */
-body {
-    background-color: #1a1613;
-    background-image: linear-gradient(rgba(26,22,19,0.22), rgba(26,22,19,0.22)), url("images/bg/page.jpg");
-    background-size: cover, cover;
+body { background-color: #1a1613; }
+/* Two photos at native pixels, fixed to the viewport:
+   snow ridge (1702x1276) top-left, Meili (1276x958) top-right, crossfading where they overlap. */
+body::before, body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
     background-repeat: no-repeat;
-    background-position: center 30%;
-    background-attachment: fixed, fixed;
+    filter: brightness(0.78);
 }
-@media (max-width: 768px) { body { background-attachment: scroll; background-size: auto 100vh; } }
+body::before {
+    z-index: -2;
+    background-image: url("images/bg/snow.jpg");
+    background-position: top left;
+    -webkit-mask-image: linear-gradient(to right, #000 1250px, transparent 1702px), linear-gradient(to bottom, #000 900px, transparent 1276px);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, #000 1250px, transparent 1702px), linear-gradient(to bottom, #000 900px, transparent 1276px);
+    mask-composite: intersect;
+}
+body::after {
+    z-index: -1;
+    background-image: url("images/bg/meili.jpg");
+    background-position: top right;
+    -webkit-mask-image: linear-gradient(to right, transparent calc(100% - 1276px), #000 calc(100% - 826px)), linear-gradient(to bottom, #000 640px, transparent 958px);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent calc(100% - 1276px), #000 calc(100% - 826px)), linear-gradient(to bottom, #000 640px, transparent 958px);
+    mask-composite: intersect;
+}
 .content-wrapper { background: transparent; }
 .hero {
     background:

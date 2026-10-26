@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="pageTitle">David He | Portfolio</title>
+    <meta name="description" content="David He (何锦程): Graphics & AI engineer. Neural rendering, monocular 3D scene reconstruction, procedural generation and game development.">
+    <meta property="og:title" content="David He | Graphics & AI Engineer">
+    <meta property="og:description" content="Neural rendering, 3D scene reconstruction from video, procedural generation and game development.">
+    <meta property="og:image" content="https://davecodingking.github.io/images/posters/nr_preview.jpg">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"><style>
+  body::before, body::after { display: none !important; }
+  body { background-image: linear-gradient(rgba(26,22,19,0.22), rgba(26,22,19,0.22)), url("images/bg/page.jpg") !important;
+         background-size: cover, cover !important; background-repeat: no-repeat !important;
+         background-position: center 30% !important; background-attachment: fixed, fixed !important; }
+</style>
+    <link rel="icon" href="images/favicon.png?v=2" type="image/x-icon">
+</head>
+
+<body class="antialiased leading-normal">
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-wrapper">
+
+        <!-- ================= HERO ================= -->
+        <section id="top" class="hero rounded-b-xl mb-4">
+            <div class="container px-4 md:px-8 py-16 md:py-24">
+                <div class="flex flex-col md:flex-row items-center gap-10 hero-content">
+                    <div class="shrink-0 hero-avatar">
+                        <img src="images/pfp.png?v=2" alt="David He"
+                             class="w-52 h-52 md:w-64 md:h-64 object-cover rounded-full">
+                    </div>
+                    <div class="text-center md:text-left">
+                        <p class="hero-eyebrow"><span data-lang-key="heroEyebrow">Graphics &amp; AI Engineer</span><span class="hero-sep">·</span><span data-lang-key="heroTrack1">Research</span><span class="hero-sep">/</span><span data-lang-key="heroTrack2">Game Development</span></p>
+                        <h2 class="text-3xl md:text-5xl font-bold mb-5 text-[var(--color-text-primary)] leading-tight" data-lang-key="heroTitle">
+                            Researcher, Game Developer, Game Artist in my mind.
+                        </h2>
+                        <p class="text-lg md:text-2xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl" data-lang-key="heroDescription">
+                            I enjoy learning various technologies and developing games. I'm always enthusiastic on learning, building new skills, and bringing ideas to life.
+                        </p>
+                        <div class="flex flex-wrap gap-3 justify-center md:justify-start mt-7">
+                            <a href="#research" class="btn-accent"><i class="fa-solid fa-flask mr-2"></i><span data-lang-key="heroBtnResearch">Research &amp; Pipelines</span></a>
+                            <a href="#games" class="btn-primary"><i class="fa-solid fa-gamepad mr-2"></i><span data-lang-key="heroBtnGames">Games &amp; Tools</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tools-technologies" class="mt-12">
+                    <div class="flex flex-wrap justify-center items-center gap-3 py-2 hero-skills">
+                        <span><img src="images/logos/cplusplus.svg" alt="">C++</span>
+                        <span><img src="images/logos/python.svg" alt="">Python</span>
+                        <span><img src="images/logos/pytorch.svg" alt="">PyTorch</span>
+                        <span><i class="fa-brands fa-windows"></i>DirectX 11</span>
+                        <span><img src="images/logos/unrealengine.svg" alt="">Unreal Engine 5</span>
+                        <span><img src="images/logos/unity.svg" alt="">Unity</span>
+                        <span><img src="images/logos/csharp.svg" alt="">C#</span>
+                        <span><img src="images/logos/blender.svg" alt="">Blender</span>
+                        <span><img src="images/logos/houdini.svg" alt="">Houdini</span>
+                        <span><i class="fa-solid fa-cubes"></i>3DGS</span>
+                        <span><img src="images/logos/docker.svg" alt="">Docker</span>
+                        <span><img src="images/logos/git.svg" alt="">Git</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= RESEARCH ================= -->
+        <section id="research" class="container panel py-12 md:py-16">
+            <h2 class="section-title" data-lang-key="researchTitle">Research &amp; Pipelines</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <!-- Featured: Neural Rendering -->
+                <a id="project-neural-rendering-link" href="projectset/project_neural_rendering.html" class="card project-card-content md:col-span-2 featured">
+                    <div class="card-media card-media-wide">
+                        <video class="w-full h-full object-cover" poster="images/posters/nr_preview.jpg" preload="none" loop muted playsinline data-src="videos/nr_audi.mp4"></video>
+                        <div class="card-tags">
+                            <span>PyTorch</span><span>Neural Texture</span><span>Triplane SH</span><span>Mobile GPU</span>
+                        </div>
+                        <span class="card-badge" data-lang-key="badgeFeatured">Featured</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="card-meta"><span data-lang-key="proj0Org">PolyU x Huawei</span> · 2025-2026 · <span data-lang-key="proj0Role">Research Associate</span></div>
+                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj0Title">Lightweight Dynamic Neural Rendering</h3>
+                        <div class="project-description text-[var(--color-text-secondary)]" data-lang-key="proj0Desc">
+                            Neural textures plus triplane spherical-harmonic light probes and a dual-MLP shader render dynamic-GI scenes at 25 dB PSNR and 90+ FPS on a Huawei Mate 70 Pro, with 10x less probe storage than voxels.
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Scene reconstruction -->
+                <a id="project-scene-recon-link" href="projectset/project_scene_recon.html" class="card project-card-content">
+                    <div class="card-media">
+                        <video class="w-full h-full object-cover" poster="images/posters/recon_preview.jpg" preload="none" loop muted playsinline data-src="videos/recon_preview.mp4"></video>
+                        <div class="card-tags"><span>SAM 3</span><span>SAM 3D</span><span>Depth Anything 3</span><span>Qwen3-VL</span></div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="card-meta">WarpEngine · 2026 · <span data-lang-key="proj7Role">Backend Pipeline Engineer</span></div>
+                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj7Title">Monocular Video to Editable 3D Scene</h3>
+                        <div class="project-description text-[var(--color-text-secondary)]" data-lang-key="proj7Desc">
+                            Seven foundation models, one pipeline: objects as placed meshes at real scale, people as animated characters, physics-settled, delivered as FBX. Five stages, five human gates.
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 3DGS to mesh -->
+                <a id="project-gs2mesh-link" href="projectset/project_gs2mesh.html" class="card project-card-content">
+                    <div class="card-media">
+                        <img src="images/posters/gs2mesh.jpg" alt="3DGS object replacement" class="w-full h-full object-cover">
+                        <div class="card-tags"><span>3DGS</span><span>SAM 3</span><span>SAM 3D Objects</span><span>gsplat</span></div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="card-meta">WarpEngine · 2026 · <span data-lang-key="proj8Role">Tooling</span></div>
+                        <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj8Title">3DGS Object Replacement with Generated Meshes</h3>
+                        <div class="project-description text-[var(--color-text-secondary)]" data-lang-key="proj8Desc">
+                            Point at an object in a Gaussian-splat room; it is carved out and replaced by a generated, textured mesh refined against seven views until the silhouettes match. About four minutes per object.
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================= GAMES ================= -->
+        <section id="games" class="container panel py-12 md:py-16">
+            <h2 class="section-title" data-lang-key="gamesTitle">Games &amp; Tools</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                <a id="project-extreme-sports-link" href="projectset/project_extreme_sports.html" class="card project-card-content">
+                    <div class="card-media">
+                        <video class="w-full h-full object-cover" poster="images/posters/extremespoortshort.jpg" preload="none" loop muted playsinline data-src="videos/extremespoortshort.mp4"></video>
+                        <div class="card-tags"><span>UE5</span><span>Houdini</span></div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="card-meta">2025 · <span data-lang-key="proj1Role">Level generation, gameplay</span></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj1Title">Extreme Sports Game</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj1Desc">
+                            Procedural terrain with erosion and a VEX cost-based path generator, driven from UE5 through a custom Houdini bridge tool.
+                        </div>
+                    </div>
+                </a>
+
+                <a id="project-pcg-link" href="projectset/project_pcg.html" class="card project-card-content">
+                    <div class="card-media">
+                        <video class="w-full h-full object-cover" poster="images/posters/pcg_preview.jpg" preload="none" loop muted playsinline data-src="videos/pcg_preview.mp4"></video>
+                        <div class="card-tags"><span>PCG</span><span>Houdini</span><span>UE5</span></div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="card-meta">2024-2025 · <span data-lang-key="proj3Role">MSc dissertation</span></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj3Title">PCG City Generator</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj3Desc">
+                            Houdini city generator with custom zoning, road networks, a visual parameter panel inside UE5 and external asset import.
+                        </div>
+                    </div>
+                </a>
+
+                <a id="project-ray-tracer-link" href="projectset/project_raytracer.html" class="card project-card-content">
+                    <div class="card-media">
+                        <video class="w-full h-full object-cover" poster="images/posters/rtbase.jpg" preload="none" loop muted playsinline data-src="videos/rtbase.mp4"></video>
+                        <div class="card-tags"><span>C++</span><span>PBRT</span></div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="card-meta">2024 · <span data-lang-key="proj4Role">Solo</span></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj4Title">CPU Ray Tracer</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj4Desc">
+                            Path tracing, light tracing and instant radiosity with MIS, GGX microfacets, BVH, adaptive sampling and OIDN denoising.
+                        </div>
+                    </div>
+                </a>
+
+                <a id="project-2d-shooter-link" href="projectset/project_2d_mecha.html" class="card project-card-content">
+                    <div class="card-media">
+                        <video class="w-full h-full object-cover" poster="images/posters/2drogueshort.jpg" preload="none" loop muted playsinline data-src="videos/2drogueshort.mp4"></video>
+                        <div class="card-tags"><span>C++</span><span>DirectX</span><span>Blender</span></div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="card-meta">2024 · <span data-lang-key="proj2Role">Game Jam, solo</span></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj2Title">2D Pixel Mecha Shooter</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj2Desc">
+                            Twin-stick shooter on a from-scratch C++ engine: data-driven maps, FSM enemies, sprite animation, collision.
+                        </div>
+                    </div>
+                </a>
+
+                <a id="project-rasterizer-link" href="https://github.com/Davecodingking/Rasterizer" target="_blank" rel="noopener noreferrer" class="card project-card-content">
+                    <div class="card-media">
+                        <video class="w-full h-full object-cover" poster="images/posters/rasterizershort.jpg" preload="none" loop muted playsinline data-src="videos/rasterizershort.mp4"></video>
+                        <div class="card-tags"><span>C++</span><span>DirectX 11</span></div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="card-meta">2024 · <span data-lang-key="proj5Role">Solo</span> · <i class="fa-brands fa-github"></i></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj5Title">3D Rasterization Engine</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj5Desc">
+                            DirectX 11 engine with deferred shading, skeletal animation and collision detection.
+                        </div>
+                    </div>
+                </a>
+
+                <a id="project-seed-of-eden-link" href="https://youtu.be/riH4wzVhWWE?si=Yx-EPM6aKFZYzFa9" target="_blank" rel="noopener noreferrer" class="card project-card-content">
+                    <div class="card-media">
+                        <video class="w-full h-full object-cover" poster="images/posters/soeshort.jpg" preload="none" loop muted playsinline data-src="videos/soeshort.mp4"></video>
+                        <div class="card-tags"><span>Unity3D</span><span>C#</span></div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <div class="card-meta">2022 · <span data-lang-key="proj6Role">Solo</span> · <i class="fa-brands fa-youtube"></i></div>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="proj6Title">Survival Game "Seed of Eden"</h3>
+                        <div class="project-description text-[var(--color-text-secondary)] text-sm" data-lang-key="proj6Desc">
+                            Inventory, combat, crafting and building systems for a Unity sandbox survival game.
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================= EXPERIENCE (timeline) ================= -->
+        <section id="experience" class="container panel py-12 md:py-16">
+            <h2 class="section-title" data-lang-key="experience">Experience</h2>
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-date" data-lang-key="exp1Date">Jul 2026 - Present</div>
+                    <div class="tl-body card">
+                        <h3 data-lang-key="exp1Title">Backend Pipeline Engineer</h3>
+                        <p class="tl-org" data-lang-key="exp1Company">WarpEngine, Algorithm &amp; Technology Dept.</p>
+                        <ul>
+                            <li data-lang-key="exp1Desc1">Built an end-to-end pipeline that reconstructs editable, metric-scale 3D scenes from monocular video for world-model training.</li>
+                            <li data-lang-key="exp1Desc2">Maintain an automated scene-scanning and batch-export toolchain, and the dispatch service of a multi-node, multi-GPU rendering cluster.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-date" data-lang-key="exp2Date">Dec 2025 - Jul 2026</div>
+                    <div class="tl-body card">
+                        <h3 data-lang-key="exp2Title">Research Associate</h3>
+                        <p class="tl-org" data-lang-key="exp2Company">The Hong Kong Polytechnic University, Department of Computing</p>
+                        <ul>
+                            <li data-lang-key="exp2Desc1">Huawei lightweight dynamic neural rendering project: neural textures, triplane SH light probes and a dual-MLP shader (see project page).</li>
+                            <li data-lang-key="exp2Desc2">Built Blender / Unreal scenes and the automated G-buffer data pipeline. Paper in preparation for TVCG.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-date" data-lang-key="exp3Date">Jul 2025 - Sept 2025</div>
+                    <div class="tl-body card">
+                        <h3 data-lang-key="exp3Title">Research Assistant Intern</h3>
+                        <p class="tl-org" data-lang-key="exp3Company">The Hong Kong University of Science and Technology (Guangzhou)</p>
+                        <ul><li data-lang-key="exp3Desc1">Unity-based VR visualization for Procedural Content Generation (PCG) research projects.</li></ul>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-date" data-lang-key="exp4Date">Jul 2022 - Sept 2022</div>
+                    <div class="tl-body card">
+                        <h3 data-lang-key="exp4Title">IT Department Intern</h3>
+                        <p class="tl-org" data-lang-key="exp4Company">BMW Brilliance Automotive</p>
+                        <ul><li data-lang-key="exp4Desc1">Contributed to the update of the internal JOYCHAT application's shuttle route module and ran end-to-end functional tests for all new routes.</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= EDUCATION ================= -->
+        <section id="education" class="container panel py-12 md:py-16">
+            <h2 class="section-title" data-lang-key="education">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="edu1Title">Master of Science, Game Engineering</h3>
+                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="edu1School">University of Warwick</p>
+                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="edu1Date">Sept 2024 - Jan 2026</p>
+                    <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
+                        <li data-lang-key="edu1Desc1">Advanced Computer Graphics, Machine Learning, Game Design</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-2 text-[var(--color-text-primary)]" data-lang-key="edu2Title">Bachelor of Science, Computer Science</h3>
+                    <p class="text-[var(--color-text-secondary)] mb-1" data-lang-key="edu2School">Hong Kong Baptist University</p>
+                    <p class="text-[var(--color-text-secondary)] text-sm mb-4" data-lang-key="edu2Date">Sept 2020 - Jul 2024</p>
+                    <ul class="list-disc list-inside text-[var(--color-text-secondary)]">
+                        <li data-lang-key="edu2Desc1">Data Structures and Algorithms, Operating Systems, Deep Learning, Computational Theory</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT ================= -->
+        <section id="contact" class="container panel py-12 md:py-16">
+            <h2 class="section-title" data-lang-key="contact">Get in Touch</h2>
+            <div class="card text-center max-w-2xl mx-auto">
+                <p class="text-lg mb-6 text-[var(--color-text-bright)]" data-lang-key="contactDesc">
+                    Open to research and engineering roles in graphics, neural rendering and 3D reconstruction. Happy to talk about any of the projects above.
+                </p>
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mb-4">
+                    <a href="mailto:hedavidjc@gmail.com" class="contact-link"><i class="fa-solid fa-envelope text-xl mr-2"></i><span>hedavidjc@gmail.com</span></a>
+                    <a href="https://wa.me/447436400952" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-brands fa-whatsapp text-xl mr-2"></i><span>+44 7436 400952</span></a>
+                    <a href="https://github.com/Davecodingking" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-brands fa-github text-xl mr-2"></i><span>Davecodingking</span></a>
+                    <a href="https://www.linkedin.com/in/jincheng-he-751474332/" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-brands fa-linkedin text-xl mr-2"></i><span>LinkedIn</span></a>
+                </div>
+                <div id="zh-contact-info" class="hidden text-[var(--color-text-secondary)]">
+                    <div class="flex justify-center items-center mb-2">
+                        <i class="fa-solid fa-mobile-screen-button text-xl mr-2"></i><span data-lang-key="contactPhone"></span>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <i class="fa-brands fa-weixin text-xl mr-2"></i><span data-lang-key="contactWechat"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="pb-16">
+        <div class="container mx-auto text-center">
+            <p class="text-sm text-[var(--color-text-secondary)]" data-lang-key="footerText">
+                &copy; 2026 David He. Made using Tailwind CSS and hosted on GitHub Pages.
+            </p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top invisible" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
