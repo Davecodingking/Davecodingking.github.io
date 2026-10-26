@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
             srM1Title: "Measure position, generate shape, let common sense set scale",
             srM1Desc: "No single model can do this job. Qwen3-VL lists what is in the frame; SAM 3 tracks each instance through the video; Depth Anything 3 / VGGT give per-frame depth and camera pose so masks back-project into gravity-aligned 3D boxes; SAM 3D Objects generates a complete mesh (hidden back included) from one cutout; Qwen3-VL answers \"how tall is this kind of thing\" to fix absolute scale. Boxes own position and orientation, meshes own shape, priors own size. None of them is allowed to overrule another.",
             srM2Title: "Scale and geometric calibration",
-            srM2Desc: "Monocular depth is self-consistent but not metric: one car park came out 6.4x too small and looked fine in renders. Global scale is calibrated against VLM size priors and rejected if the per-class agreement is poor. Bad pose frames are caught by cross-frame depth checks and skipped. Two-level deduplication over 2D masks and 3D voxels removes the same object found under different words.",
+            srM2Desc: "Monocular depth is self-consistent but not metric: one car park came out 6.4x too small and looked fine in renders. Global scale is calibrated against VLM size priors and rejected if the per-class agreement is poor. Bad pose frames are caught by cross-frame depth checks and skipped. Two-level deduplication over 2D masks and 3D voxels removes the same object found under different words. Object orientation, including which way it faces, is estimated with FoundationPose rather than read off point-cloud principal axes, so there is no 180-degree front/back ambiguity.",
             srM3Title: "Dynamic humans and physics",
             srM3Desc: "A video 4D human pipeline (segmentation and tracking, diffusion-based occlusion completion, parametric body recovery) outputs temporally consistent people even when they walk behind each other, then aligns them into the scene frame. The room shell or the ground acts as a static collider; rigid-body simulation settles every object and pushes interpenetrating ones apart, so nothing floats and nothing overlaps.",
             srM4Title: "Productionization",
@@ -225,7 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
             srGateTitle: "What a gate looks like",
             srGateDesc: "Gate 2 review sheet for the street scene: every candidate cutout with its class, the frame it was picked from and the VLM verdict. The reviewer keeps, drops, merges or re-labels in the browser; the pipeline reruns from the affected step.",
             srLimitTitle: "Known limitations",
-            srLimit1: "Point-cloud principal axes give an object's axis but not its front/back, so orientation can be off by 180 degrees.",
             srLimit2: "Person identity is position-based: if one person leaves and another stands in the same spot, they may be merged.",
             srLimit3: "Non-human objects tracked as \"person\" (a coat on a chair) are not removed automatically; they are dropped at the gate.",
 
@@ -471,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
             srM1Title: "测量定位置，生成补形状，常识定尺寸",
             srM1Desc: "没有哪个模型能单独做完。Qwen3-VL 列出画面里有什么；SAM 3 在整段视频里跟踪每个实例；Depth Anything 3 / VGGT 给每帧深度与相机位姿，把 mask 反投影成重力对齐的三维盒子；SAM 3D Objects 用一张抠图生成完整网格（看不见的背面一起补）；Qwen3-VL 回答\"这类东西一般多高\"来定绝对尺度。盒子管位置和朝向，网格管形状，先验管尺寸，互不越界。",
             srM2Title: "尺度与几何校准",
-            srM2Desc: "单目深度自洽但不是米制：有个停车场小了 6.4 倍，渲染图上完全看不出来。全局尺度按 VLM 尺寸先验标定，各类一致率不达标就拒绝。位姿错的帧用帧间深度交叉验证挑出并跳过。二维 mask 与三维体素两级去重，消除同一个物体在不同词下被重复检出。",
+            srM2Desc: "单目深度自洽但不是米制：有个停车场小了 6.4 倍，渲染图上完全看不出来。全局尺度按 VLM 尺寸先验标定，各类一致率不达标就拒绝。位姿错的帧用帧间深度交叉验证挑出并跳过。二维 mask 与三维体素两级去重，消除同一个物体在不同词下被重复检出。物体朝向（包括正反）由 FoundationPose 估计，不再依赖点云主轴，消除了 180° 正反歧义。",
             srM3Title: "动态人体与物理",
             srM3Desc: "视频 4D 人体流程（分割跟踪、扩散遮挡补全、参数化人体重建）在人互相走过遮挡时仍输出时序一致的序列，再对齐到场景坐标系。房间壳体或地面作为静态碰撞体，刚体仿真让每个物体落地并推开穿模，保证无悬空、无互相穿透。",
             srM4Title: "工程落地",
@@ -479,7 +478,6 @@ document.addEventListener("DOMContentLoaded", () => {
             srGateTitle: "闸口长什么样",
             srGateDesc: "街口场景的闸 2 审核表：每个候选抠图及其类别、取自哪一帧、VLM 判定。审核人在浏览器里保留、丢弃、合并或改类，流水线从受影响的步骤重跑。",
             srLimitTitle: "已知局限",
-            srLimit1: "点云主轴只给出物体的轴，判不出正反，朝向可能差 180°。",
             srLimit2: "人体身份靠位置核对：甲走了、乙站到同一位置，可能被并成一个人。",
             srLimit3: "被跟踪成\"人\"的非人物体（搭在椅背上的外套）不会自动去掉，要在闸口点掉。",
 

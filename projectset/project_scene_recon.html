@@ -31,7 +31,7 @@
             <p class="text-lg text-[var(--color-text-secondary)] mb-6" data-lang-key="srSubtitle">Backend Pipeline Engineer, WarpEngine (Aug 2026 - Present). Scene data production for world-model training.</p>
 
             <div class="flex flex-wrap gap-2 mb-10">
-                <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">SAM 3</span><span class="tag">SAM 3D Objects</span><span class="tag">SAM 3D Body</span><span class="tag">Depth Anything 3</span><span class="tag">Qwen3-VL</span><span class="tag">Blender</span>
+                <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">SAM 3</span><span class="tag">SAM 3D Objects</span><span class="tag">SAM 3D Body</span><span class="tag">Depth Anything 3</span><span class="tag">FoundationPose</span><span class="tag">Qwen3-VL</span><span class="tag">Blender</span>
             </div>
 
             <!-- Overview -->
@@ -172,7 +172,6 @@
                 <h2 class="section-subsubtitle" data-lang-key="srLimitTitle">Known limitations</h2>
                 <div class="card">
                     <ul class="list-disc pl-5 text-[var(--color-text-secondary)] space-y-2">
-                        <li data-lang-key="srLimit1">Point-cloud principal axes give an object's axis but not its front/back, so orientation can be off by 180 degrees.</li>
                         <li data-lang-key="srLimit2">Person identity is position-based: if one person leaves and another stands in the same spot, they may be merged.</li>
                         <li data-lang-key="srLimit3">Non-human objects tracked as "person" (a coat on a chair) are not removed automatically; they are dropped at the gate.</li>
                     </ul>
