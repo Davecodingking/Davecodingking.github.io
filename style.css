@@ -549,3 +549,6 @@ body::after {
             url("images/bg/hero_mobile.jpg") center top / cover no-repeat;
     }
 }
+
+/* Cormorant defaults to old-style figures; use lining numerals so numbers match text height */
+h1, h2, h3, .section-title, .section-subtitle, .section-subsubtitle, .stat-num, .tl-body h3, .bg-caption { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
